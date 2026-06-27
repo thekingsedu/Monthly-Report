@@ -8,7 +8,7 @@ Monthly Report	6월
 					
 2. 영어 주요 학습 요약					
 [영어논술]	OK Writing 4 과정 학습 진행 중				
-[독해]	구문이 독해다 Starter 학습 완료함				
+[독해]	구문이 독해다 Starter 학습 완료함, 구문이 독해다 - 1권 학습 예정				
 [어휘]	초등 기본 VOCA 학습 완료함. 초등 필수 VOCA 학습 진행 중				
 [문법]	문법이 쓰기다 기본 1 & 클래스카드 문법훈련 학습 진행 중				
 					
@@ -71,12 +71,6 @@ Monthly Report	6월
 					
 					
 					
-					
-					
-					
-					
-					
-					
 독해 ? 구문이 독해다 시리즈	[구문이 독해다 Starter] Reading 학습 & 직독직해	Perfect Complete			
 			Unit 1 My Family 	 be동사 문장 1	http://www.classcard.net/ParagraphShare/1861614/20131027/6615233/1
 			Unit 2 Three Little Pigs and a Bad Wolf 	 be동사 문장 2	http://www.classcard.net/ParagraphShare/1861614/20131028/6615233/1
@@ -97,7 +91,7 @@ Monthly Report	6월
 			Unit 17 A Storm Is Coming 	 진행형	http://www.classcard.net/ParagraphShare/1861614/20131043/6615233/1
 			Unit 18 The First Man into Space 	 과거형	http://www.classcard.net/ParagraphShare/1861614/20131044/6615233/1
 			Unit 19 Winter Fun 	 청유문	http://www.classcard.net/ParagraphShare/1861614/20131045/6615233/1
-			Unit 20 Dinner Time 	 명령문	스피킹 업데이트 예정
+			Unit 20 Dinner Time 	 명령문	http://www.classcard.net/ParagraphShare/1861614/20131046/6615233/1
 					
 					
 문법 학습 프로그램	항목	학습 진행 상태	총 Units	Comment / 링크 텍스트 / URL	
@@ -106,8 +100,8 @@ Monthly Report	6월
 					
 					
 학습 프로그램(Small Cards - 2단)	항목		링크 텍스트	Comment / 링크 텍스트 / URL	
-문법 ? 클래스카드 문법훈련	정밀 문법 훈련 실적부		문법 훈련 실적부 분석 결과	https://www.classcard.net/ShareGClass/665765770	
-어휘 ? The King's Vocabulary	주관식 어휘 성취도 보고서		어휘 테스트 보고서 열람	https://www.classcard.net/ShareReport/665285276615233	
+문법 ? 클래스카드 문법훈련	정밀 문법 훈련 실적부		문법 훈련 실적부 분석 결과	https://www.classcard.net/ShareGClass/168867920	
+어휘 ? The King's Vocabulary	주관식 어휘 성취도 보고서		어휘 테스트 보고서 열람	https://www.classcard.net/ShareReport/168468876615233	
 					
 					
 4. 수학 주요 학습 요약					
@@ -121,6 +115,12 @@ Monthly Report	6월
 초등 6학년 2학기 - 5단원	원의 둘레와 넓이	학습 완료	단원평가 분석 보고서 조회 	원주율의 의미를 알고 원의 둘레(원주)와 넓이를 구하는 공식을 실생활에 적용할 수 있다.	https://thekingsedu.github.io/Monthly-Report/2026.06/Math_Data/강지온_초6-2_(5. 원의 둘레와 넓이).html
 초등 6학년 2학기 - 6단원	원기둥, 원뿔, 구	학습 완료	단원평가 분석 보고서 조회 	원기둥, 원뿔, 구의 구성 요소와 성질을 이해하고 단면과 전개도를 파악할 수 있다.	https://thekingsedu.github.io/Monthly-Report/2026.06/Math_Data/강지온_초6-2_(6. 원기둥, 원뿔, 구).html
 중등 1학년 1학기 - Ⅰ단원	소인수분해	학습 진행 중	교과 학습 진행 중	소수와 합성수를 구별하고 자연수를 소인수분해하여 최대공약수와 최소공배수를 구할 수 있다.	
+					
+					
+					
+					
+					
+					
 					
 					
 					

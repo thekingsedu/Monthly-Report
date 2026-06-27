@@ -1,0 +1,301 @@
+					
+1. 기본 정보					
+보고서 번호	thekings309				
+학년	초등부 6학년				
+Monthly Report	6월				
+학생 이름	박세연				
+					
+					
+2. 영어 주요 학습 요약					
+[영어논술]	OK Writing 4 과정 학습 진행 중				
+[독해]	리딩튜터 스타터 2, [S05.2 Origins 휘파람을 불면 안 돼!] 학습 진행 중				
+[어휘]	초등 필수 VOCA 학습 진행 중				
+[문법]	Grammar Inside Starter, [CHAPTER 03 be동사] 학습 진행 중, 클래스카드 문법훈련 학습 진행 중				
+					
+					
+3. 상세진도					
+리딩, 영어논술, 독해 학습 프로그램	항목	학습 진행 상태	링크 텍스트	부가 설명	URL
+영어논술 ? OK Writing 시리즈	[OK Writing 3] 어순 체화 영작 및 스토리 쓰기	Perfect Complete			
+			Sentence Building		학습 완료
+			Part 1 소유격 (of)(1)	중1&2 문법 완벽 연계	http://www.classcard.net/ParagraphShare/1439417/19948332/4889112/0
+			Part 1 소유격 (of)(2)	중1&2 문법 완벽 연계	http://www.classcard.net/ParagraphShare/1439417/19948337/4889112/0
+			Part 2 to로 문장 늘려 쓰기	중1&2 문법 완벽 연계	http://www.classcard.net/ParagraphShare/1439417/19948341/4889112/0
+			Part 3 조동사 can(1)	중1&2 문법 완벽 연계	http://www.classcard.net/ParagraphShare/1439417/19948349/4889112/0
+			Part 3 조동사 can(2)	중1&2 문법 완벽 연계	http://www.classcard.net/ParagraphShare/1439417/19948360/4889112/0
+			Part 3 조동사 can(3)	중1&2 문법 완벽 연계	http://www.classcard.net/ParagraphShare/1439417/19948361/4889112/0
+			Part 4 비인칭 주어	중1&2 문법 완벽 연계	http://www.classcard.net/ParagraphShare/1439417/19948367/4889112/0
+			Part 5 Let’s~	중1 문법 완벽 연계	http://www.classcard.net/ParagraphShare/1439417/19948369/4889112/0
+			Part 6 3인칭 단수(1)	중1&2 문법 완벽 연계	http://www.classcard.net/ParagraphShare/1439417/19948375/4889112/0
+			Part 6 3인칭 단수(2)	중1&2 문법 완벽 연계	http://www.classcard.net/ParagraphShare/1439417/19948376/4889112/0
+			Part 7 부정문 (doesn’t)(1)	중1&2 문법 완벽 연계	http://www.classcard.net/ParagraphShare/1439417/19948377/4889112/0
+			Part 7 부정문 (doesn’t)(2)	중1&2 문법 완벽 연계	http://www.classcard.net/ParagraphShare/1439417/19948379/4889112/0
+			Story Writing		학습 완료
+			Achievement Assessment 		평가 완료
+					
+	[Bridge Writing 3] 어순 체화 영작 및 스토리 쓰기	Perfect Complete			
+			Sentence Building		학습 완료
+			Part 1 There is / There are	중1 문법 완벽 연계	http://www.classcard.net/ParagraphShare/1500317/21052489/4889112/0
+			Part 2 소유격	중1 문법 완벽 연계	http://www.classcard.net/ParagraphShare/1500317/21052492/4889112/0
+			Part 3 의문사 있는 의문문(be동사)	중1 문법 완벽 연계	http://www.classcard.net/ParagraphShare/1500317/21052495/4889112/0
+			Part 4 Don't 명령문	중1 문법 완벽 연계	http://www.classcard.net/ParagraphShare/1500317/21052497/4889112/0
+			Part 5 조동사 can(1)	중1&2 문법 완벽 연계	http://www.classcard.net/ParagraphShare/1500317/21052500/4889112/0
+			Part 5 조동사 can(2)	중1&2 문법 완벽 연계	http://www.classcard.net/ParagraphShare/1500317/21052503/4889112/0
+			Part 6 to로 문장 늘려 쓰기	중1&2 문법 완벽 연계	http://www.classcard.net/ParagraphShare/1500317/21052505/4889112/0
+			Story Writing		학습 완료
+			Achievement Assessment 		평가 완료
+					
+	[OK Writing 4] 어순 체화 영작 및 스토리 쓰기	Steady Progress			
+			Sentence Building		학습 완료
+			Part 1 조동사 will(1)	중1&2 문법 완벽 연계	http://www.classcard.net/ParagraphShare/1475662/20634903/4889112/0
+			Part 1 조동사 will(2)	중1&2 문법 완벽 연계	http://www.classcard.net/ParagraphShare/1475662/20634956/4889112/0
+			Part 1 조동사 will(3)	중1&2 문법 완벽 연계	http://www.classcard.net/ParagraphShare/1475662/20634972/4889112/0
+			Part 2 조동사 must(1)	중1&2 문법 완벽 연계	http://www.classcard.net/ParagraphShare/1475662/20634993/4889112/0
+			Part 2 조동사 must(2)	중1&2 문법 완벽 연계	http://www.classcard.net/ParagraphShare/1475662/20634998/4889112/0
+			Part 3 to로 문장 늘려 쓰기	중1&2 문법 완벽 연계	http://www.classcard.net/ParagraphShare/1475662/20635004/4889112/0
+			Part 4 that으로 문장 늘려 쓰기	중2&3 문법 완벽 연계	http://www.classcard.net/ParagraphShare/1475662/20635008/4889112/0
+			Part 5 의문문(Do)(1)	중1 문법 완벽 연계	http://www.classcard.net/ParagraphShare/1475662/20635031/4889112/0
+			Part 5 의문문(Do)(2)	중1 문법 완벽 연계	http://www.classcard.net/ParagraphShare/1475662/20635039/4889112/0
+			Part 6 의문사 있는 의문문(1)	중1&2 문법 완벽 연계	http://www.classcard.net/ParagraphShare/1475662/20635045/4889112/0
+			Part 6 의문사 있는 의문문(2)	중1&2 문법 완벽 연계	http://www.classcard.net/ParagraphShare/1475662/20635053/4889112/0
+			Part 6 의문사 있는 의문문(3)	중1&2 문법 완벽 연계	http://www.classcard.net/ParagraphShare/1475662/20635062/4889112/0
+			Part 6 의문사 있는 의문문(4)	중1&2 문법 완벽 연계	http://www.classcard.net/ParagraphShare/1475662/20635066/4889112/0
+			Story Writing		학습 진행 중
+					
+					
+					
+					
+					
+					
+					
+					
+독해 ? 리딩튜터 시리즈	[리딩튜터 스타터 1] 구문 분석 및 직독직해 완성	Perfect Complete			
+			S01.1 Nature 나를 맞혀봐!		학습 완료
+			S01.2 Body 오~ 감이 있어!		학습 완료
+			S01.3 Animals 낙타가 아닙니다만	리딩튜터 스타터 1 - S01.3	http://www.classcard.net/ParagraphShare/1783926/20737435/4889112/0
+			S02.1 Food 케이크가 남았을 때	리딩튜터 스타터 1 - S02.1	http://www.classcard.net/ParagraphShare/1783926/20737436/4889112/0
+			S02.2 Nature 여름이 좋아, 겨울이 좋아?		학습 완료
+			S02.3 Stories 비둘기는 내 친구	리딩튜터 스타터 1 - S02.3	http://www.classcard.net/ParagraphShare/1783926/20737438/4889112/0
+			S03.1 Math 같이 계산해 봐요	리딩튜터 스타터 1 - S03.1	http://www.classcard.net/ParagraphShare/1783926/20737439/4889112/0
+			S03.2 Culture 반짝이는 크리스마스 마켓	리딩튜터 스타터 1 - S03.2	http://www.classcard.net/ParagraphShare/1783926/20737440/4889112/0
+			S03.3 Health 콜록, 콜록!	리딩튜터 스타터 1 - S03.3	http://www.classcard.net/ParagraphShare/1783926/20737441/4889112/0
+			S04.1 Stories 메달리스트 고양이	리딩튜터 스타터 1 - S04.1	http://www.classcard.net/ParagraphShare/1783926/20737442/4889112/0
+			S04.2 Jobs 우리들의 영웅	리딩튜터 스타터 1 - S04.2	http://www.classcard.net/ParagraphShare/1783926/20737443/4889112/0
+			S04.3 Environment 세상에서 가장 특별한 연주		학습 완료
+			S05.1 Animals 내 머리의 비밀	리딩튜터 스타터 1 - S05.1	http://www.classcard.net/ParagraphShare/1783926/20737445/4889112/0
+			S05.2 Space 앗, 눈부셔!	리딩튜터 스타터 1 - S05.2	http://www.classcard.net/ParagraphShare/1783926/20737446/4889112/0
+			S05.3 Stories Mike의 새 자전거		학습 완료
+			S06.1 Nature 모두에게 소중한 강	리딩튜터 스타터 1 - S06.1	http://www.classcard.net/ParagraphShare/1783926/20737448/4889112/0
+			S06.2 Letter 진심을 받아주세요!		학습 완료
+			S06.3 Culture 꽃으로 사랑을 전해요	리딩튜터 스타터 1 - S06.3	http://www.classcard.net/ParagraphShare/1783926/20737450/4889112/0
+			S07.1 Culture 크리스마스 다음 날은 무슨 날?		학습 완료
+			S07.2 Animals 고기를 먹는 벌이 있다고?		학습 완료
+			S07.3 Rules 안내를 읽어주세요		학습 완료
+			S08.1 Buildings '프랑스'하면 떠오르는 것은?		학습 완료
+			S08.2 Health 아무거나 먹지 말아요!		학습 완료
+			S08.3 Earth 우리가 사는 이 대륙		학습 완료
+					
+					
+	[리딩튜터 스타터 2] 구문 분석 및 직독직해 완성	Steady Progress			
+			S01.1 Food 크래커도 숨을 쉬어요		http://www.classcard.net/ParagraphShare/1783931/20737457/4889112/0
+			S01.2 Stories 내 빵 돌려내!		http://www.classcard.net/ParagraphShare/1783931/20737458/4889112/0
+			S01.3 Space 아니, 무슨 냄새지?		http://www.classcard.net/ParagraphShare/1783931/20737459/4889112/0
+			S02.1 Health 보기보다 무시무시해		http://www.classcard.net/ParagraphShare/1783931/20737460/4889112/0
+			S02.2 Fashion 이 조그마한 걸 어디에 쓰지?		http://www.classcard.net/ParagraphShare/1783931/20737461/4889112/0
+			S02.3 Places 가장 특별한 아침 식사		학습 완료
+			S03.1 Animals 내 주름에는 비밀이 있어!		http://www.classcard.net/ParagraphShare/1783931/20737463/4889112/0
+			S03.2 Food 하룻밤 사이에 무슨 일이?!		http://www.classcard.net/ParagraphShare/1783931/20737464/4889112/0
+			S03.3 Culture 거기 아무도 없나요?		http://www.classcard.net/ParagraphShare/1783931/20737465/4889112/0
+			S04.1 Sports 아래로 더 아래로		http://www.classcard.net/ParagraphShare/1783931/20737466/4889112/0
+			S04.2 History 이 컵이 필요했지?		http://www.classcard.net/ParagraphShare/1783931/20737467/4889112/1
+			S04.3 Art 그림을 다시 보면?		http://www.classcard.net/ParagraphShare/1783931/20737468/4889112/1
+			S05.1 Animals 코 좀 확인하겠습니다		http://www.classcard.net/ParagraphShare/1783931/20737469/4889112/1
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+학습 프로그램	항목	학습 진행 상태	총 Units	Comment / 링크 텍스트 / URL	
+문법 ? Grammar Inside Starter	실시간 학습 진도율 분석 리포트	Chapter 03 학습 중
+(CHAPTER 03 be동사)	13 Chapters	Grammar Inside Starter 중학교 영문법을 처음 접하는 학생들이 서술형 내신 평가의 기본기를 완벽하게 다질 수 있도록 필수 핵심 개념들을 쉽고 입체적으로 수록하고 있습니다.	
+					
+					
+학습 프로그램(Small Cards - 2단)	항목		링크 텍스트	Comment / 링크 텍스트 / URL	
+문법 ? 클래스카드 문법훈련	정밀 문법 훈련 실적부		문법 훈련 실적부 분석 결과	https://www.classcard.net/ShareGClass/237355930	
+어휘 ? The King's Vocabulary	주관식 어휘 성취도 보고서		어휘 테스트 보고서 열람	https://www.classcard.net/ShareReport/236999774889112	
+					
+					
+4. 수학 주요 학습 요약					
+[초등 6학년 1학기 과정]	학교 교과 진도에 맞춰 복습 학습 완료함				
+[초등 6학년 2학기 과정]	6학년 2학기 - 2단원 소수의 나눗셈 학습 진행 중				
+					
+					
+5. 단원별 세부 진도 & 평가서 분석					
+과정	단원명	학습 진행 상태	링크 텍스트	부가 설명	URL
+초등 6학년 1학기 - 5단원	여러 가지 그래프	학습 완료	단원평가 분석 보고서 조회 	전체에 대한 각 부분의 비율을 띠그래프와 원그래프로 나타내고 자료를 해석할 수 있다.	https://thekingsedu.github.io/Monthly-Report/2026.06/Math_Data/박세연_초6-1_(5. 여러 가지 그래프).html
+초등 6학년 2학기 - 1단원	분수의 나눗셈	학습 완료	단원평가 분석 보고서 조회 	(분수) ÷ (분수)의 원리를 이해하고 역수를 이용하여 능숙하게 계산할 수 있다.	https://thekingsedu.github.io/Monthly-Report/2026.06/Math_Data/박세연_초6-2_(1. 분수의 나눗셈).html
+초등 6학년 2학기 - 2단원	소수의 나눗셈	학습 진행 중	교과 학습 진행 중	(소수) ÷ (소수)의 원리를 이해하고 몫을 반올림하여 적절히 나타낼 수 있다.	
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					

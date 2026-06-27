@@ -1,0 +1,1332 @@
+<html lang="ko"><head><script data-bard-injected="true">(function(firebaseConfig, initialAuthToken, appId) {
+        window.__firebase_config = firebaseConfig;
+        window.__initial_auth_token = initialAuthToken;
+        window.__app_id = appId;
+            })("\n{\n  \"apiKey\": \"AIzaSyCqyCcs2R2e7AegGjvFAwG98wlamtbHvZY\",\n  \"authDomain\": \"bard-frontend.firebaseapp.com\",\n  \"projectId\": \"bard-frontend\",\n  \"storageBucket\": \"bard-frontend.firebasestorage.app\",\n  \"messagingSenderId\": \"175205271074\",\n  \"appId\": \"1:175205271074:web:2b7bd4d34d33bf38e6ec7b\"\n}\n","eyJhbGciOiJSUzI1NiIsImtpZCI6IjBmNDhjMDQxMTUxMmM3NTM4NjJkMmFkZWVmYjg0NTczZTAyZmFlMjMiLCJ0eXAiOiJKV1QifQ.eyJzdWIiOiJmaXJlYmFzZS1hZG1pbnNkay1mYnN2Y0BiYXJkLWZyb250ZW5kLmlhbS5nc2VydmljZWFjY291bnQuY29tIiwiYXVkIjoiaHR0cHM6Ly9pZGVudGl0eXRvb2xraXQuZ29vZ2xlYXBpcy5jb20vZ29vZ2xlLmlkZW50aXR5LmlkZW50aXR5dG9vbGtpdC52MS5JZGVudGl0eVRvb2xraXQiLCJ1aWQiOiIxMDkwODUxNzU1MzYwOTg2MjU0MiIsImlzcyI6ImZpcmViYXNlLWFkbWluc2RrLWZic3ZjQGJhcmQtZnJvbnRlbmQuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJjbGFpbXMiOnsiYXBwSWQiOiJjXzJjN2MwN2YwNzRiNjhmYzhfdGhla2luZ3MzNjQuaHRtbC0xMTYifSwiZXhwIjoxNzgyNTQ2NDE1LCJpYXQiOjE3ODI1NDI4MTUsImFsZyI6IlJTMjU2In0.UjEO9dXE3hGmdOoo25HwH4T3DcE4FAaYPWXaP1WZ4TC_kXVSRicw7DFNEhlBTrmBiuZ6k2Surw8ilPpp0ur3bkjM5Q4HU_6WSIvzozfVV4lHoIBwGBlJxa97zEQUroKTQWT4g5bDTz0S4DBydkgli00rDMuWpBflmWQh5Y5QrUmsk5kzJVQv6CiHw5lSCJCirQoJTD-BgayVUuUX2uTQOjiLV4hDY4B-YNTQm7VrZt-DSwxv4erixFqf23x1TeTlGZolnCEYihtsZ7XjZCx0kQf00gLS683e12dFgQ2FLU48z3XTWRPv7lm7lrFHQyj5Mf_mZvzYU3PHhnuw-3EmVA","c_2c7c07f074b68fc8_thekings364.html-116")</script><script data-bard-injected="true">(function() {
+  document.addEventListener('mouseup', function(e) {
+    const selection = window.getSelection();
+    const selectedText = selection ? selection.toString().trim() : '';
+    if (selectedText.length > 0) {
+      const range = selection.getRangeAt(0);
+      // Clone the original user selection range before DOM manipulation. In browser DOM mechanics,
+      // removing temporary nodes from within an active selection invalidates and collapses the selection pointers.
+      const originalRange = range.cloneRange();
+      const rect = range.getBoundingClientRect();
+
+      const startTag = document.createTextNode('<selection-tag>');
+      const endTag = document.createTextNode('</selection-tag>');
+
+      const rangeStart = range.cloneRange();
+      rangeStart.collapse(true);
+
+      const rangeEnd = range.cloneRange();
+      rangeEnd.collapse(false);
+
+      // Insert end tag first to avoid shifting start boundary if they are in the same node.
+      rangeEnd.insertNode(endTag);
+      rangeStart.insertNode(startTag);
+
+      const fullTextWithTags = document.body.innerText;
+
+      if (startTag.parentNode) {
+        startTag.parentNode.removeChild(startTag);
+      }
+      if (endTag.parentNode) {
+        endTag.parentNode.removeChild(endTag);
+      }
+
+      // Explicitly restore the user's original selection range. Without this restoration, the selection collapses
+      // instantly, causing subsequent mouse movements or clicks to evaluate window.getSelection() as empty,
+      // which triggers a premature textSelectionCleared post-message that wipes out artifactTextWithTags in the store.
+      selection.removeAllRanges();
+      selection.addRange(originalRange);
+
+      window.parent.postMessage({
+        type: 'textSelection',
+        text: selectedText,
+        fullTextWithTags: fullTextWithTags,
+        rect: {
+          top: rect.top,
+          left: rect.left,
+          bottom: rect.bottom,
+          right: rect.right,
+          width: rect.width,
+          height: rect.height,
+        },
+      }, '*');
+    } else {
+      window.parent.postMessage({
+        type: 'textSelectionCleared',
+      }, '*');
+    }
+  }, true);
+})();</script><script data-bard-injected="true">(function(){'use strict';window.addEventListener("message",a=>{a.data&&a.data.type==="SUPPLEMENTAL_DATA_UPDATE"&&window.dispatchEvent(new CustomEvent("supplementaldataupdate",{detail:a.data.data}))});}).call(this);
+</script><script data-bard-injected="true">(function(){'use strict';var h=typeof Object.defineProperties=="function"?Object.defineProperty:function(a,b,d){if(a==Array.prototype||a==Object.prototype)return a;a[b]=d.value;return a};function l(a){a=["object"==typeof globalThis&&globalThis,a,"object"==typeof window&&window,"object"==typeof self&&self,"object"==typeof global&&global];for(var b=0;b<a.length;++b){var d=a[b];if(d&&d.Math==Math)return d}throw Error("Cannot find global object");}var n=l(this);
+function p(a,b){if(b)a:{var d=n;a=a.split(".");for(var c=0;c<a.length-1;c++){var e=a[c];if(!(e in d))break a;d=d[e]}a=a[a.length-1];c=d[a];b=b(c);b!=c&&b!=null&&h(d,a,{configurable:!0,writable:!0,value:b})}}function r(a){function b(c){return a.next(c)}function d(c){return a.throw(c)}return new Promise(function(c,e){function f(g){g.done?c(g.value):Promise.resolve(g.value).then(b,d).then(f,e)}f(a.next())})}function t(a){return r(a())}
+p("Object.values",function(a){return a?a:function(b){var d=[],c;for(c in b)Object.prototype.hasOwnProperty.call(b,c)&&d.push(b[c]);return d}});p("Array.prototype.includes",function(a){return a?a:function(b,d){var c=this;c instanceof String&&(c=String(c));var e=c.length;d=d||0;for(d<0&&(d=Math.max(d+e,0));d<e;d++){var f=c[d];if(f===b||Object.is(f,b))return!0}return!1}});/*
+
+ MIT License
+
+ Copyright (c) 2017-2023 W.Y.
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ SOFTWARE.
+
+*/
+function u(a,b){var d=a.style;b.backgroundColor&&(d.backgroundColor=b.backgroundColor);b.width&&(d.width=`${b.width}px`);b.height&&(d.height=`${b.height}px`);var c=b.style;c!=null&&Object.keys(c).forEach(e=>{d[e]=c[e]})};var v=(()=>{var a=0;return()=>{a+=1;return`u${`0000${(Math.random()*1679616<<0).toString(36)}`.slice(-4)}${a}`}})();function w(a){var b=[];for(let d=0,c=a.length;d<c;d++)b.push(a[d]);return b}let x=null;function y(a={}){return x?x:a.l?x=a.l:x=w(window.getComputedStyle(document.documentElement))}function z(a,b){return(a=(a.ownerDocument.defaultView||window).getComputedStyle(a).getPropertyValue(b))?parseFloat(a.replace("px","")):0}
+function A(a,b={}){var d;if(!(d=b.width)){d=z(a,"border-left-width");var c=z(a,"border-right-width");d=a.clientWidth+d+c}(b=b.height)||(b=z(a,"border-top-width"),c=z(a,"border-bottom-width"),b=a.clientHeight+b+c);return{width:d,height:b}}function B(a){return new Promise((b,d)=>{var c=new Image;c.onload=()=>{c.decode().then(()=>{requestAnimationFrame(()=>b(c))})};c.onerror=d;c.crossOrigin="anonymous";c.decoding="async";c.src=a})}
+function C(a){return t(function*(){return Promise.resolve().then(()=>(new XMLSerializer).serializeToString(a)).then(encodeURIComponent).then(b=>`data:image/svg+xml;charset=utf-8,${b}`)})}
+function D(a,b,d){return t(function*(){var c=document.createElementNS("http://www.w3.org/2000/svg","svg"),e=document.createElementNS("http://www.w3.org/2000/svg","foreignObject");c.setAttribute("width",`${b}`);c.setAttribute("height",`${d}`);c.setAttribute("viewBox",`0 0 ${b} ${d}`);e.setAttribute("width","100%");e.setAttribute("height","100%");e.setAttribute("x","0");e.setAttribute("y","0");e.setAttribute("externalResourcesRequired","true");c.appendChild(e);e.appendChild(a);return C(c)})}
+var E=(a,b)=>{if(a instanceof b)return!0;a=Object.getPrototypeOf(a);return a===null?!1:a.constructor.name===b.name||E(a,b)};function F(a,b){return y(b).map(d=>{var c=a.getPropertyValue(d),e=a.getPropertyPriority(d);return`${d}: ${c}${e?" !important":""};`}).join(" ")}
+function G(a,b,d,c){a=window.getComputedStyle(a,d);var e=a.getPropertyValue("content");if(e!==""&&e!=="none"){var f=v();try{b.className=`${b.className} ${f}`}catch(k){return}e=document.createElement("style");var g=e.appendChild;d=`.${f}:${d}`;a.cssText?(c=a.getPropertyValue("content"),c=`${a.cssText} content: '${c.replace(/'|"/g,"")}';`):c=F(a,c);g.call(e,document.createTextNode(`${d}{${c}}`));b.appendChild(e)}};function H(a){return a.search(/^(data:)/)!==-1}function I(a,b,d){return t(function*(){var c=yield fetch(a,b);if(c.status===404)throw Error(`Resource "${c.url}" not found`);var e=yield c.blob();return new Promise((f,g)=>{var k=new FileReader;k.onerror=g;k.onloadend=()=>{try{f(d({o:c,result:k.result}))}catch(m){g(m)}};k.readAsDataURL(e)})})}const J={};function K(a,b,d){var c=a.replace(/\?.*/,"");d&&(c=a);/ttf|otf|eot|woff2?/i.test(c)&&(c=c.replace(/.*\//,""));return b?`[${b}]${c}`:c}
+function L(a,b,d){return t(function*(){var c=K(a,b,d.C);if(J[c]!=null)return J[c];d.u&&(a+=(/\?/.test(a)?"&":"?")+(new Date).getTime());try{let f=yield I(a,d.i,({o:g,result:k})=>{b||(b=g.headers.get("Content-Type")||"");return k.split(/,/)[1]});var e=`data:${b};base64,${f}`}catch(f){e=d.B||""}return J[c]=e})};const M={P:"application/font-woff",R:"application/font-woff",N:"application/font-truetype",v:"application/vnd.ms-fontobject",H:"image/png",F:"image/jpeg",D:"image/jpeg",A:"image/gif",M:"image/tiff",L:"image/svg+xml",O:"image/webp"};function N(a){return(a=/\.([^./]*?)$/g.exec(a))?a[1]:""};function O(a){return t(function*(){var b=a.toDataURL();return b==="data:,"?a.cloneNode(!1):B(b)})}function aa(a,b){return t(function*(){if(a.currentSrc){var d=document.createElement("canvas");let c=d.getContext("2d");d.width=a.clientWidth;d.height=a.clientHeight;c==null||c.drawImage(a,0,0,d.width,d.height);d=d.toDataURL();return B(d)}d=a.poster;d=yield L(d,M[N(d).toLowerCase()]||"",b);return B(d)})}
+function ba(a,b){return t(function*(){try{let d;if(a==null?0:(d=a.contentDocument)==null?0:d.body)return yield P(a.contentDocument.body,b,!0)}catch(d){}return a.cloneNode(!1)})}function ca(a,b){return t(function*(){return E(a,HTMLCanvasElement)?O(a):E(a,HTMLVideoElement)?aa(a,b):E(a,HTMLIFrameElement)?ba(a,b):a.cloneNode(a.tagName!=null&&a.tagName.toUpperCase()==="SVG")})}
+function da(a,b,d){return t(function*(){if(b.tagName!=null&&b.tagName.toUpperCase()==="SVG")return b;var c=[];if(a.tagName!=null&&a.tagName.toUpperCase()==="SLOT"&&a.assignedNodes)c=w(a.assignedNodes());else{let e;if(E(a,HTMLIFrameElement)&&((e=a.contentDocument)==null?0:e.body))c=w(a.contentDocument.body.childNodes);else{let f;c=w(((f=a.shadowRoot)!=null?f:a).childNodes)}}if(c.length===0||E(a,HTMLVideoElement))return b;yield c.reduce((e,f)=>e.then(()=>P(f,d)).then(g=>{g&&b.appendChild(g)}),Promise.resolve());
+return b})}function ea(a,b,d){var c=b.style;if(c){var e=window.getComputedStyle(a);e.cssText?(c.cssText=e.cssText,c.transformOrigin=e.transformOrigin):y(d).forEach(f=>{var g=e.getPropertyValue(f);f==="font-size"&&g.endsWith("px")&&(g=`${Math.floor(parseFloat(g.substring(0,g.length-2)))-.1}px`);E(a,HTMLIFrameElement)&&f==="display"&&g==="inline"&&(g="block");f==="d"&&b.getAttribute("d")&&(g=`path(${b.getAttribute("d")})`);c.setProperty(f,g,e.getPropertyPriority(f))})}}
+function fa(a,b){E(a,HTMLSelectElement)&&(b=Array.from(b.children).find(d=>a.value===d.getAttribute("value")))&&b.setAttribute("selected","")}
+function ha(a,b){return t(function*(){var d=a.querySelectorAll?a.querySelectorAll("use"):[];if(d.length===0)return a;var c={};for(var e=0;e<d.length;e++){var f=d[e].getAttribute("xlink:href");if(f){let g=document.querySelector(f);a.querySelector(f)||!g||c[f]||(c[f]=yield P(g,b,!0))}}d=Object.values(c);if(d.length){c=document.createElementNS("http://www.w3.org/1999/xhtml","svg");c.setAttribute("xmlns","http://www.w3.org/1999/xhtml");c.style.position="absolute";c.style.width="0";c.style.height="0";
+c.style.overflow="hidden";c.style.display="none";e=document.createElementNS("http://www.w3.org/1999/xhtml","defs");c.appendChild(e);for(f=0;f<d.length;f++)e.appendChild(d[f]);a.appendChild(c)}return a})}
+function P(a,b,d){return t(function*(){return d||!b.filter||b.filter(a)?Promise.resolve(a).then(c=>ca(c,b)).then(c=>da(a,c,b)).then(c=>{E(c,Element)&&(ea(a,c,b),G(a,c,":before",b),G(a,c,":after",b),E(a,HTMLTextAreaElement)&&(c.textContent=a.value),E(a,HTMLInputElement)&&c.setAttribute("value",a.value),fa(a,c));return c}).then(c=>ha(c,b)):null})};const Q=/url\((['"]?)([^'"]+?)\1\)/g,ia=/url\([^)]+\)\s*format\((["']?)([^"']+)\1\)/g,ja=/src:\s*(?:url\([^)]+\)\s*format\([^)]+\)[,;]\s*)+/g;function ka(a){var b=[];a.replace(Q,(d,c,e)=>{b.push(e);return d});return b.filter(d=>!H(d))}
+function la(a,b,d,c){return t(function*(){try{let e=d?(new URL(b,d||void 0)).toString():b,f;f=yield L(e,M[N(b).toLowerCase()]||"",c);return a.replace(new RegExp(`(url\\(['"]?)(${b.replace(/([.*+?^${}()|\[\]\/\\])/g,"\\$1")})(['"]?\\))`,"g"),`$1${f}$3`)}catch(e){}return a})}function ma(a,{I:b}){return b?a.replace(ja,d=>{for(;;){let [c,,e]=ia.exec(d)||[];if(!e)return"";if(e===b)return`src: ${c};`}}):a}
+function R(a,b,d){return t(function*(){if(a.search(Q)===-1)return a;var c=ma(a,d);return ka(c).reduce((e,f)=>e.then(g=>la(g,f,b,d)),Promise.resolve(c))})};function S(a,b,d){return t(function*(){var c,e=(c=b.style)==null?void 0:c.getPropertyValue(a);return e?(c=yield R(e,null,d),b.style.setProperty(a,c,b.style.getPropertyPriority(a)),!0):!1})}function na(a,b){return t(function*(){(yield S("background",a,b))||(yield S("background-image",a,b));(yield S("mask",a,b))||(yield S("-webkit-mask",a,b))||(yield S("mask-image",a,b))||(yield S("-webkit-mask-image",a,b))})}
+function oa(a,b){return t(function*(){var d=E(a,HTMLImageElement);if(d&&!H(a.src)||E(a,SVGImageElement)&&!H(a.href.baseVal)){var c=d?a.src:a.href.baseVal,e=yield L(c,M[N(c).toLowerCase()]||"",b);yield new Promise((f,g)=>{a.onload=f;a.onerror=b.m?(...k)=>{try{f(b.m(...k))}catch(m){g(m)}}:g;a.decode&&(a.decode=f);a.loading==="lazy"&&(a.loading="eager");d?(a.srcset="",a.src=e):a.href.baseVal=e})}})}
+function pa(a,b){return t(function*(){var d=w(a.childNodes).map(c=>T(c,b));yield Promise.all(d).then(()=>a)})}function T(a,b){return t(function*(){E(a,Element)&&(yield na(a,b),yield oa(a,b),yield pa(a,b))})};const U={};function V(a){return t(function*(){var b=U[a];if(b!=null)return b;b=yield(yield fetch(a)).text();b={url:a,cssText:b};return U[a]=b})}function W(a,b){return t(function*(){var d=a.cssText,c=/url\(["']?([^"')]+)["']?\)/g,e=(d.match(/url\([^)]+\)/g)||[]).map(f=>t(function*(){var g=f.replace(c,"$1");g.startsWith("https://")||(g=(new URL(g,a.url)).href);return I(g,b.i,({result:k})=>{d=d.replace(f,`url(${k})`);return[f,k]})}));return Promise.all(e).then(()=>d)})}
+function X(a){if(a==null)return[];var b=[];a=a.replace(/(\/\*[\s\S]*?\*\/)/gi,"");for(var d=RegExp("((@.*?keyframes [\\s\\S]*?){([\\s\\S]*?}\\s*?)})","gi");;){var c=d.exec(a);if(c===null)break;b.push(c[0])}a=a.replace(d,"");d=/@import[\s\S]*?url\([^)]*\)[\s\S]*?;/gi;for(c=RegExp("((\\s*?(?:\\/\\*[\\s\\S]*?\\*\\/)?\\s*?@media[\\s\\S]*?){([\\s\\S]*?)}\\s*?})|(([\\s\\S]*?){([\\s\\S]*?)})","gi");;){let e=d.exec(a);if(e===null)if(e=c.exec(a),e===null)break;else d.lastIndex=c.lastIndex;else c.lastIndex=
+d.lastIndex;b.push(e[0])}return b}
+function qa(a,b){return t(function*(){var d=[],c=[];a.forEach(e=>{if("cssRules"in e)try{w(e.cssRules||[]).forEach((f,g)=>{if(f.type===CSSRule.IMPORT_RULE){let k=g+1;f=V(f.href).then(m=>W(m,b)).then(m=>X(m).forEach(q=>{try{e.insertRule(q,q.startsWith("@import")?k+=1:e.cssRules.length)}catch(Da){}})).catch(()=>{});c.push(f)}})}catch(f){let g=a.find(k=>k.href==null)||document.styleSheets[0];e.href!=null&&c.push(V(e.href).then(k=>W(k,b)).then(k=>X(k).forEach(m=>{g.insertRule(m,g.cssRules.length)})).catch(()=>
+{}))}});return Promise.all(c).then(()=>{a.forEach(e=>{if("cssRules"in e)try{w(e.cssRules||[]).forEach(f=>{d.push(f)})}catch(f){}});return d})})}function ra(a){return a.filter(b=>b.type===CSSRule.FONT_FACE_RULE).filter(b=>b.style.getPropertyValue("src").search(Q)!==-1)}function sa(a,b){return t(function*(){if(a.ownerDocument==null)throw Error("Provided element is not within a Document");var d=w(a.ownerDocument.styleSheets);d=yield qa(d,b);return ra(d)})}
+function ta(a){function b(c){(c.style.fontFamily||getComputedStyle(c).fontFamily).split(",").forEach(e=>{d.add(e.trim().replace(/["']/g,""))});Array.from(c.children).forEach(e=>{e instanceof HTMLElement&&b(e)})}var d=new Set;b(a);return d}function ua(a,b){return t(function*(){var d=yield sa(a,b),c=ta(a);return(yield Promise.all(d.filter(e=>c.has(e.style.fontFamily.trim().replace(/["']/g,""))).map(e=>R(e.cssText,e.parentStyleSheet?e.parentStyleSheet.href:null,b)))).join("\n")})}
+function va(a,b){return t(function*(){var d=b.j!=null?b.j:b.K?null:yield ua(a,b);if(d){let c=document.createElement("style");c.appendChild(document.createTextNode(d));a.firstChild?a.insertBefore(c,a.firstChild):a.appendChild(c)}})};function wa(a,b={}){return t(function*(){var {width:d,height:c}=A(a,b),e=yield P(a,b,!0);yield va(e,b);yield T(e,b);u(e,b);return yield D(e,d,c)})}
+function xa(a,b={}){return t(function*(){var {width:d,height:c}=A(a,b),e=yield wa(a,b);e=yield B(e);var f=document.createElement("canvas"),g=f.getContext("2d"),k=b.G||window.devicePixelRatio||1,m=b.h||d,q=b.g||c;f.width=m*k;f.height=q*k;!b.J&&(f.width>16384||f.height>16384)&&(f.width>16384&&f.height>16384?f.width>f.height?(f.height*=16384/f.width,f.width=16384):(f.width*=16384/f.height,f.height=16384):f.width>16384?(f.height*=16384/f.width,f.width=16384):(f.width*=16384/f.height,f.height=16384));
+f.style.width=`${m}`;f.style.height=`${q}`;b.backgroundColor&&(g.fillStyle=b.backgroundColor,g.fillRect(0,0,f.width,f.height));g.drawImage(e,0,0,f.width,f.height);return f})}function ya(a,b={}){return t(function*(){return(yield xa(a,b)).toDataURL()})};const za=["gemini.google.com","corp.google.com","proxy.googlers.com"];function Y(){return document.body.querySelectorAll('[class*="animate"]').length>0}function Z(a){return t(function*(){try{return yield ya(a,{h:a.offsetWidth,g:a.offsetHeight})}catch(d){var b=a.offsetHeight;let c=document.createElement("canvas");c.width=a.offsetWidth;c.height=b;return c.toDataURL("image/png")}})}
+function Aa(){return t(function*(){var a=document.body.offsetWidth,b=document.body.offsetHeight,d=document.body.cloneNode(!0);d.querySelectorAll('[class*="animate"]').forEach(c=>{c.classList.remove(...Array.from(c.classList).filter(e=>e.startsWith("animate")))});d.style.width=`${a}px`;d.style.height=`${b}px`;return d})}
+function Ba(a){return t(function*(){var b=document.body;if(Y()){var d=yield Aa();b=d;document.body.appendChild(d)}d=yield Z(b);Y()&&document.body.removeChild(b);window.parent.postMessage({type:"SEND_SCREENSHOT",image:d,topOffset:document.documentElement.scrollTop},a.origin)})}function Ca(a){return t(function*(){var b={type:"SEND_SCREENSHOT_FOR_DATA_VISUALIZATION",image:yield Z(document.body),topOffset:0};window.parent.postMessage(b,a.origin)})}
+window.addEventListener("message",a=>t(function*(){if(za.some(d=>a.origin.includes(d))){var b=a.data;b&&(b.type==="MAKE_SCREENSHOT"&&(yield Ba(a)),b.type==="MAKE_SCREENSHOT_FOR_DATA_VISUALIZATION"&&(yield Ca(a)))}}));
+})();</script><script data-bard-injected="true">(function() {
+  // Ensure this script is executed only once
+  if (window.firebaseAuthBridgeScriptLoaded) {
+    return;
+  }
+  window.firebaseAuthBridgeScriptLoaded = true;
+
+  let nextTokenPromiseId = 0;
+
+  // Stores { resolve, reject } for ongoing token requests
+  const pendingTokenPromises = {};
+
+  // Listen for messages from the Host Application
+  window.addEventListener('message', function(event) {
+
+    const messageData = event.data;
+
+  if (messageData && messageData.type === 'RESOLVE_NEW_FIREBASE_TOKEN') {
+      const { success, token, error, promiseId } = messageData ?? {};
+      if (pendingTokenPromises[promiseId]) {
+        if (success) {
+          pendingTokenPromises[promiseId].resolve(token);
+        } else {
+          pendingTokenPromises[promiseId].reject(new Error(error || 'Token refresh failed from host.'));
+        }
+        delete pendingTokenPromises[promiseId];
+      }
+    }
+  });
+
+  // Expose a function for the Generated App to request a new Firebase token
+  window.requestNewFirebaseToken = function() {
+    const currentPromiseId = nextTokenPromiseId++;
+    const promise = new Promise((resolve, reject) => {
+      pendingTokenPromises[currentPromiseId] = { resolve, reject };
+    });
+    if (window.parent && window.parent !== window) {
+      window.parent.postMessage({
+        type: 'REQUEST_NEW_FIREBASE_TOKEN',
+        promiseId: currentPromiseId
+      }, '*');
+    } else {
+      pendingTokenPromises[currentPromiseId].reject(new Error('No parent window to request token from.'));
+      delete pendingTokenPromises[currentPromiseId];
+    }
+    return promise;
+  };
+})();</script><script data-bard-injected="true">
+let realOriginalGetUserMedia = null;
+if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+  realOriginalGetUserMedia = navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices);
+}
+
+(function() {
+  if (navigator.mediaDevices && navigator.mediaDevices.__proto__) {
+    try {
+      Object.defineProperty(navigator.mediaDevices.__proto__, 'getUserMedia', {
+        get: function() {
+          return undefined; // Or throw an error
+        },
+        configurable: false
+      });
+    } catch (error) {
+      console.error("Error defining prototype getter:", error);
+    }
+  }
+})();
+
+(function() {
+  const pendingMediaResolvers = {};
+  let nextMediaPromiseId = 0;
+
+  function requestMediaPermissions(constraints) {
+    const mediaPromiseId = nextMediaPromiseId++;
+    const promise = new Promise((resolve, reject) => {
+      pendingMediaResolvers[mediaPromiseId] = (granted) => {
+        delete pendingMediaResolvers[mediaPromiseId];
+        resolve(granted);
+      };
+    });
+
+    window.parent.postMessage({
+      type: 'requestMediaPermission',
+      constraints: constraints,
+      promiseId: mediaPromiseId,
+    }, '*');
+
+    return promise;
+  }
+
+  let originalGetUserMedia = realOriginalGetUserMedia;
+
+  function interceptGetUserMedia() {
+    if (navigator.mediaDevices) {
+      Object.defineProperty(navigator.mediaDevices, 'getUserMedia', {
+        value: function(constraints) {
+          return requestMediaPermissions(constraints).then((granted) => {
+            if (granted) {
+              if (originalGetUserMedia) {
+                return originalGetUserMedia(constraints);
+              } else {
+                throw new Error("Original getUserMedia not available.");
+              }
+            } else {
+              throw new DOMException('Permission denied', 'NotAllowedError');
+            }
+          });
+        },
+        writable: false,
+        configurable: false
+      });
+    }
+  }
+
+  interceptGetUserMedia();
+
+  const observer = new MutationObserver(function(mutationsList, observer) {
+    for (const mutation of mutationsList) {
+      if (mutation.type === 'reconfigured' && mutation.name === 'getUserMedia' && mutation.object === navigator.mediaDevices) {
+        interceptGetUserMedia();
+      } else if (mutation.type === 'attributes' && mutation.attributeName === 'getUserMedia' && mutation.target === navigator.mediaDevices) {
+        interceptGetUserMedia();
+      } else if (mutation.type === 'childList' && mutation.addedNodes) {
+        mutation.addedNodes.forEach(node => {
+          if (node === navigator.mediaDevices) {
+            interceptGetUserMedia();
+          }
+        });
+      }
+    }
+  });
+
+  function interceptSpeechRecognition() {
+    if (!window.SpeechRecognition && !window.webkitSpeechRecognition) {
+      return;
+    }
+
+    const OriginalSpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    const SpeechRecognitionWrapper = function(...args) {
+      const recognizer = new OriginalSpeechRecognition(...args);
+      const originalStart = recognizer.start.bind(recognizer);
+
+      recognizer.start = function() {
+        requestMediaPermissions({ audio: true }).then(granted => {
+          if (granted) {
+            originalStart();
+          } else {
+            const errorEvent = new SpeechRecognitionErrorEvent('error');
+            errorEvent.error = 'not-allowed'; // This is the standard error for permission denial.
+            recognizer.dispatchEvent(errorEvent);
+          }
+        });
+      };
+
+      return recognizer;
+    };
+
+    SpeechRecognitionWrapper.prototype = OriginalSpeechRecognition.prototype;
+    SpeechRecognitionWrapper.prototype.constructor = SpeechRecognitionWrapper;
+
+    if (window.SpeechRecognition) {
+      window.SpeechRecognition = SpeechRecognitionWrapper;
+    }
+    if (window.webkitSpeechRecognition) {
+      window.webkitSpeechRecognition = SpeechRecognitionWrapper;
+    }
+  }
+
+  interceptSpeechRecognition();
+
+  window.addEventListener('message', function(event) {
+    if (event.data) {
+      if (event.data.type === 'resolveMediaPermission') {
+        const { promiseId, granted } = event.data;
+        if (pendingMediaResolvers[promiseId]) {
+          pendingMediaResolvers[promiseId](granted);
+        }
+      }
+    }
+  });
+
+})();</script><script ws-interception-config="{&quot;parentOrigin&quot;:&quot;https://gemini.google.com&quot;,&quot;proxiedDomains&quot;:[]}" data-bard-injected="true">(function(){'use strict';var u=typeof Object.defineProperties=="function"?Object.defineProperty:function(b,d,e){if(b==Array.prototype||b==Object.prototype)return b;b[d]=e.value;return b};function v(b){b=["object"==typeof globalThis&&globalThis,b,"object"==typeof window&&window,"object"==typeof self&&self,"object"==typeof global&&global];for(var d=0;d<b.length;++d){var e=b[d];if(e&&e.Math==Math)return e}throw Error("Cannot find global object");}var w=v(this);
+function y(b,d){if(d)a:{var e=w;b=b.split(".");for(var h=0;h<b.length-1;h++){var k=b[h];if(!(k in e))break a;e=e[k]}b=b[b.length-1];h=e[b];d=d(h);d!=h&&d!=null&&u(e,b,{configurable:!0,writable:!0,value:d})}}function z(b){function d(h){return b.next(h)}function e(h){return b.throw(h)}return new Promise(function(h,k){function m(n){n.done?h(n.value):Promise.resolve(n.value).then(d,e).then(m,k)}m(b.next())})}y("globalThis",function(b){return b||w});/*
+
+ Copyright The Closure Library Authors.
+ SPDX-License-Identifier: Apache-2.0
+*/
+function A(b,d){function e(){}e.prototype=d.prototype;b.i=d.prototype;b.prototype=new e;b.prototype.constructor=b;b.g=function(h,k,m){for(var n=Array(arguments.length-2),p=2;p<arguments.length;p++)n[p-2]=arguments[p];return d.prototype[k].apply(h,n)}};function B(b,d,e="*"){function h(a){if(typeof a==="string")return F.encode(a).buffer;if(a instanceof ArrayBuffer)return a.slice(0);if(ArrayBuffer.isView(a))return a.buffer.slice(a.byteOffset,a.byteOffset+a.byteLength);throw Error("Invalid data type");}function k(a){a=h(a);var f={type:"send",data:new Uint8Array(a)},g;(g=r)==null||g.postMessage(f,[a])}function m(){if(!r)throw Error("Data port not captured yet.");r.onmessage=a=>{if(a.data.type==="message"){a=new MessageEvent("message",{data:G.decode(a.data.data)});
+let f;(f=c.onmessage)==null||f.call(c,a);c.dispatchEvent(a)}}}function n(){if(!t)throw Error("Control port not captured yet.");t.onmessage=a=>{switch(a.data.type){case "open":l=1;var f=new Event("open"),g;(g=c.onopen)==null||g.call(c,f);c.dispatchEvent(f);q.forEach(H=>{k(H)});q=[];break;case "close":g=a.data;l=3;g=new CloseEvent("close",{code:g.code,reason:g.reason,wasClean:g.wasClean});(f=c.onclose)==null||f.call(c,g);c.dispatchEvent(g);break;case "error":l=3;f=new Event("error");let x;(x=c.onerror)==
+null||x.call(c,f);c.dispatchEvent(f)}}}function p(a){return z(function*(){var f=new MessageChannel;t=f.port1;var g=new MessageChannel;r=g.port1;n();m();window.parent.postMessage({type:"websocket_open",portOrdering:["control","data"],url:b,protocols:a||[],connectionId:I},e,[f.port2,g.port2])}())}var c=Reflect.construct(EventTarget,[],new.target);c.CONNECTING=0;c.OPEN=1;c.CLOSING=2;c.CLOSED=3;c.url=b;c.binaryType="arraybuffer";c.protocol="";c.h="";var l=0,t=null,r=null,q=[],F=new TextEncoder,G=new TextDecoder;
+c.onopen=null;c.onmessage=null;c.onclose=null;c.onerror=null;Object.defineProperty(c,"readyState",{get:()=>l,enumerable:!0,configurable:!0});Object.defineProperty(c,"bufferedAmount",{get:()=>{var a=0;q.forEach(f=>{a+=typeof f==="string"?f.length:f.byteLength});return a},enumerable:!0,configurable:!0});var I=function(){var a;return((a=globalThis.crypto)==null?0:a.randomUUID)?globalThis.crypto.randomUUID():"xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g,f=>{var g=Math.random()*16|0;return(f===
+"x"?g:g&3|8).toString(16)})}();c.send=a=>{if(l===1)a instanceof Blob?a.arrayBuffer().then(f=>{k(f)}):k(a);else if(l===0)if(typeof a==="string")q.push(a);else if(a instanceof ArrayBuffer||ArrayBuffer.isView(a))q.push(h(a));else throw Error("Sending Blob is not supported before the connection is open.");else console.debug("WebSocket send called in CLOSING or CLOSED state; ignored.")};c.close=(a=1E3,f="")=>{if(l!==2&&l!==3){l=2;a={type:"close",code:a,reason:f,wasClean:a===1E3};var g;(g=t)==null||g.postMessage(a)}};
+Promise.resolve().then(()=>p(d));return c}A(B,EventTarget);var C=document.currentScript,D=C==null?void 0:C.getAttribute("ws-interception-config");if(!D)throw Error("WebSocket Interceptor: Missing ws-interception-config attribute in the script tag.");var E=JSON.parse(D);if(!E.parentOrigin||typeof E.parentOrigin!=="string")throw Error("WebSocket Interceptor: Invalid parentOrigin in ws-interception-config");
+(function(b){var d=Object.getOwnPropertyDescriptor(window,"WebSocket");if(!d||d.writable||d.configurable)d=Object.assign(function(e,h){try{let k=(new URL(e)).hostname;if(b.proxiedDomains.some(m=>k===m||k.endsWith(`.${m}`)))return new B(e,h,b.parentOrigin)}catch(k){throw window.parent.postMessage({type:"websocket_blocked",url:e,reason:"blocked_invalid_url"},b.parentOrigin),new DOMException(`WebSocket connection to '${e}' is not allowed in Canvas.`,"SecurityError");}window.parent.postMessage({type:"websocket_blocked",
+url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMException(`WebSocket connection to '${e}' is not allowed in Canvas.`,"SecurityError");},{CONNECTING:0,OPEN:1,CLOSING:2,CLOSED:3}),Object.defineProperty(window,"WebSocket",{value:d,writable:!1,configurable:!1})})({proxiedDomains:E.proxiedDomains||[],parentOrigin:E.parentOrigin});}).call(this);
+</script><script data-bard-injected="true">((function(modelInformation) {
+  const originalFetch = window.fetch;
+  // TODO: b/421908508 - Move these out of the script and match all generative AI model calls.
+  let googleLlmBaseApiUrls = [
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.textModelName + ':streamGenerateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.textModelName + ':generateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageModelName + ':predict',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageModelName + ':predictLongRunning',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageEditModelName + ':generateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageTransformModelName + ':generateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.videoModelName + ':predict',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.videoModelName + ':predictLongRunning',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.ttsModelName + ':generateContent',
+  ];
+  modelInformation.deprecatedTextModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':streamGenerateContent',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':generateContent',
+    );
+  });
+  modelInformation.deprecatedImageModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':predict',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':predictLongRunning',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':generateContent',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':streamGenerateContent',
+    );
+  });
+  modelInformation.deprecatedGenerateImageModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':generateContent',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':streamGenerateContent',
+    );
+  });
+  modelInformation.deprecatedImageTransformModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':generateContent',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':streamGenerateContent',
+    );
+  });
+
+  const pendingFetchResolvers = {};
+  let nextPromiseId = 0;
+
+  function handleStringInput(input, optionsArgument) {
+    const actualUrl = input;
+    const fetchCallArgs = [actualUrl, optionsArgument];
+    const effectiveOptions = optionsArgument || {};
+    const bodyForApiKeyCheck = effectiveOptions.body;
+    const bodyForPostMessage = effectiveOptions.body;
+    return { actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage };
+  }
+
+  function handleRequestInput(input, optionsArgument) {
+    const actualUrl = input.url;
+    const fetchCallArgs = [input, optionsArgument];
+    const effectiveOptions = { method: input.method, headers: new Headers(input.headers) };
+    let bodyForApiKeyCheck;
+    let bodyForPostMessage;
+
+    if (optionsArgument) {
+      if (optionsArgument.method) effectiveOptions.method = optionsArgument.method;
+      if (optionsArgument.headers) effectiveOptions.headers = new Headers(optionsArgument.headers);
+      if ('body' in optionsArgument) {
+        bodyForApiKeyCheck = optionsArgument.body;
+        bodyForPostMessage = optionsArgument.body;
+      } else {
+        bodyForApiKeyCheck = undefined;
+        bodyForPostMessage = input.body;
+      }
+    } else {
+      bodyForApiKeyCheck = undefined;
+      bodyForPostMessage = input.body;
+    }
+    return { actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage };
+  }
+
+  window.fetch = function(input, optionsArgument) {
+    let actualUrl;
+    let fetchCallArgs;
+    let effectiveOptions = {};
+    let bodyForApiKeyCheck;
+    let bodyForPostMessage;
+
+    if (typeof input === 'string') {
+      ({actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage} = handleStringInput(input, optionsArgument));
+    } else if (input instanceof Request) {
+      ({actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage} = handleRequestInput(input, optionsArgument));
+    } else {
+      return originalFetch.apply(window, [input, optionsArgument]);
+    }
+
+    effectiveOptions.method = effectiveOptions.method || 'GET';
+    if (!effectiveOptions.headers) {
+      effectiveOptions.headers = new Headers();
+    }
+
+
+    if (typeof actualUrl === 'string' && googleLlmBaseApiUrls.some((url) => actualUrl.startsWith(url))) {
+      let apiKeyIsNull = true;
+
+      const regex = new RegExp("models/([^:]+)");
+      const modelNameMatch = actualUrl.match(regex);
+      const modelName = modelNameMatch ? modelNameMatch[1] : 'unspecified';
+
+
+      try {
+        const urlObject = new URL(actualUrl);  // Use URL object for robust parsing
+        const apiKeyParam = urlObject.searchParams.get('key');
+        if (apiKeyParam) {
+          apiKeyIsNull = false;
+        }
+      } catch (e) {
+        // Continue checks even if URL parsing fails
+      }
+
+      if (apiKeyIsNull && effectiveOptions.headers) {
+        const h = new Headers(effectiveOptions.headers);
+        const apiKeyHeaderValue = h.get('X-API-Key') || h.get('x-api-key');
+        if (apiKeyHeaderValue) {
+          apiKeyIsNull = false;
+          return originalFetch.apply(window, fetchCallArgs);
+        }
+      }
+
+      if (apiKeyIsNull && effectiveOptions.method && ['POST', 'PUT', 'PATCH'].includes(effectiveOptions.method.toUpperCase()) && typeof bodyForApiKeyCheck === 'string') {
+        try {
+          const bodyData = JSON.parse(bodyForApiKeyCheck);
+          if (bodyData && bodyData.apiKey) {
+            apiKeyIsNull = false;
+            return originalFetch.apply(window, fetchCallArgs);
+          }
+        } catch (e) {
+          // Ignore JSON parsing errors
+        }
+      }
+
+      if(apiKeyIsNull) {
+        const promiseId = nextPromiseId++;
+        const promise = new Promise((resolve) => {
+          pendingFetchResolvers[promiseId] = (resolvedResponse) => {
+            delete pendingFetchResolvers[promiseId];
+            resolve(resolvedResponse);
+          };
+        });
+
+        let serializedBodyForPostMessage;
+        if (typeof bodyForPostMessage === 'string' || bodyForPostMessage == null) {
+            serializedBodyForPostMessage = bodyForPostMessage;
+        } else if (bodyForPostMessage instanceof ReadableStream) {
+            serializedBodyForPostMessage = null;
+        } else {
+            try {
+                serializedBodyForPostMessage = JSON.stringify(bodyForPostMessage);
+            } catch (e) {
+                serializedBodyForPostMessage = null;
+            }
+        }
+
+        const messageOptions = {
+            method: effectiveOptions.method,
+            headers: Object.fromEntries(new Headers(effectiveOptions.headers).entries()),
+            body: serializedBodyForPostMessage
+        };
+
+        window.parent.postMessage({
+          type: 'requestFetch',
+          url: actualUrl,
+          modelName: modelName,
+          options: messageOptions,
+          promiseId: promiseId,
+        }, '*');
+
+        return promise;
+      }
+      return originalFetch.apply(window, fetchCallArgs);
+    }
+    return originalFetch.apply(window, fetchCallArgs);
+  };
+
+  window.addEventListener('message', function(event) {
+    if (event.data && event.data.type === 'resolveFetch') {
+      const { promiseId, response } = event.data;
+      if (pendingFetchResolvers[promiseId]) {
+        try {
+          const reconstructedResponse = new Response(response.body, {
+            status: response.status,
+            statusText: response.statusText,
+            headers: new Headers(response.headers),
+          });
+          pendingFetchResolvers[promiseId](reconstructedResponse);
+        } catch (error) {
+          pendingFetchResolvers[promiseId](new Response(null, { status: 500, statusText: "Interceptor Response Reconstruction Error" }));
+        }
+      }
+    }
+  });
+
+}))({"textModelName":"gemini-3-flash-preview","imageModelName":"imagen-4.0-generate-001","imageEditModelName":"gemini-3.1-flash-image","imageTransformModelName":"gemini-3-pro-image","videoModelName":"veo-2.0-generate-001","ttsModelName":"gemini-2.5-flash-preview-tts","deprecatedTextModelNames":["gemini-2.0-flash","gemini-2.5-flash","gemini-2.5-flash-preview-04-17","gemini-2.5-flash-preview-05-20","gemini-2.5-flash-preview-09-2025"],"deprecatedImageModelNames":["imagen-3.0-generate-001","imagen-3.0-generate-002"],"deprecatedGenerateImageModelNames":["gemini-2.5-flash-image-preview","gemini-2.5-flash-image","gemini-3.1-flash-image-preview"],"deprecatedImageTransformModelNames":["gemini-3-pro-image-preview-11-2025"]})</script><script data-bard-injected="true">(function(){'use strict';function a(){window.parent.postMessage({type:"interaction"},"*")}window.addEventListener("click",a,{capture:!0,passive:!0});window.addEventListener("touchstart",a,{capture:!0,passive:!0});window.addEventListener("keydown",a,{capture:!0,passive:!0});}).call(this);
+</script><script data-bard-injected="true">(function() {
+  const originalConsoleLog = console.log;
+  const originalConsoleError = console.error;
+
+    /**
+   * Normalizes an error event or a promise rejection reason into a structured error object.
+   * @param {*} errorEventOrReason The error object or reason.
+   * @return {object} Structured error data { message, name, stack }.
+   */
+  function getErrorObject(errorEventOrReason) {
+    if (errorEventOrReason instanceof Error) {
+      return {
+        message: errorEventOrReason.message,
+        name: errorEventOrReason.name,
+        stack: errorEventOrReason.stack,
+      };
+    }
+    // Fallback for non-Error objects.
+    try {
+      return {
+        message: JSON.stringify(errorEventOrReason),
+        name: 'UnknownErrorType',
+        stack: null,
+      };
+    } catch (e) {
+      return {
+        message: String(errorEventOrReason),
+        name: 'UnknownErrorTypeNonStringifiable',
+        stack: null,
+      };
+    }
+  }
+
+  /**
+   * Converts an array of arguments (from log/error) into a single string.
+   * Handles Error objects specially to include their message and stack.
+   * @param {Array<*>} args - Arguments passed to console methods.
+   * @return {string} A string representation of the arguments.
+   */
+  function stringifyArgs(args) {
+    return args
+      .map((arg) => {
+        if (arg instanceof Error) {
+          const {message, stack} = arg;
+          return `Error: ${message}${stack ? ('\nStack: ' + stack) : ''}`;
+        }
+        if (typeof arg === 'object' && arg !== null) {
+          try {
+            return JSON.stringify(arg);
+          } catch (error) {
+            return '[Circular Object]';
+          }
+        } else {
+          return String(arg);
+        }
+      })
+      .join(' ');
+  }
+
+  console.log = function(...args) {
+    const logString = stringifyArgs(args);
+    window.parent.postMessage({ type: 'log', message: logString }, '*');
+    originalConsoleLog.apply(console, args);
+  };
+
+  console.error = function(...args) {
+    let errorData;
+    if (args.length > 0 && args[0] instanceof Error) {
+      const err = args[0];
+      // If the first arg is an Error, capture its details.
+      errorData = {
+        type: 'error',
+        source: 'CONSOLE_ERROR',
+        ...getErrorObject(err),
+        rawArgsString: stringifyArgs(args.slice(1)),
+        timestamp: new Date().toISOString(),
+      };
+    } else {
+      // If not an Error object, treat all args as a general error message.
+      errorData = {
+        type: 'error',
+        source: 'CONSOLE_ERROR',
+        message: stringifyArgs(args),
+        name: 'ConsoleLoggedError',
+        stack: null,
+        timestamp: new Date().toISOString(),
+      };
+    }
+    window.parent.postMessage(errorData, '*');
+    originalConsoleError.apply(console, args);
+  };
+
+  // Listen for global unhandled synchronous errors.
+  window.addEventListener('error', function(event) {
+    const errorDetails = event.error ? getErrorObject(event.error) : {
+      message: event.message,
+      name: 'GlobalError',
+      stack: null,
+      filename: event.filename,
+      lineno: event.lineno,
+      colno: event.colno,
+    };
+
+    window.parent.postMessage({
+      type: 'error',
+      source: 'global',
+      ...errorDetails,
+      message: errorDetails.message || event.message,
+      timestamp: new Date().toISOString(),
+    }, '*');
+  });
+
+  // Listen for unhandled promise rejections (asynchronous errors).
+  window.addEventListener('unhandledrejection', function(event) {
+    const errorDetails = getErrorObject(event.reason);
+
+    window.parent.postMessage({
+      type: 'error',
+      source: 'unhandledrejection',
+      ...errorDetails,
+      message: errorDetails.message || 'Unhandled Promise Rejection',
+      timestamp: new Date().toISOString(),
+    }, '*');
+  });
+
+})();</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, user-scalable=yes">
+    <title>더킹스학원 - 6월 Monthly Report (조윤아)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700|Noto+Sans+KR:300,400,500,700&amp;display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Noto Sans KR', 'sans-serif'],
+                        mont: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        kings: {
+                            navy: '#0F172A',
+                            darkBlue: '#1E293B',
+                            gold: '#D97706',
+                            goldLight: '#FEF3C7',
+                            emerald: '#059669',
+                            rose: '#E11D48',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #F1F5F9; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 4px; }
+        input, button, a { -webkit-tap-highlight-color: transparent; }
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:Noto Sans KR, sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0px}.-right-20{right:-5rem}.-top-20{top:-5rem}.right-0{right:0px}.top-0{top:0px}.mx-auto{margin-left:auto;margin-right:auto}.mb-0\.5{margin-bottom:0.125rem}.mb-1{margin-bottom:0.25rem}.mb-1\.5{margin-bottom:0.375rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.ml-0\.5{margin-left:0.125rem}.ml-1{margin-left:0.25rem}.mr-0\.5{margin-right:0.125rem}.mr-1{margin-right:0.25rem}.mt-0\.5{margin-top:0.125rem}.mt-12{margin-top:3rem}.mt-3\.5{margin-top:0.875rem}.mt-4{margin-top:1rem}.mt-auto{margin-top:auto}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-1\.5{height:0.375rem}.h-10{height:2.5rem}.h-12{height:3rem}.h-16{height:4rem}.h-2{height:0.5rem}.h-4{height:1rem}.h-5{height:1.25rem}.h-6{height:1.5rem}.h-8{height:2rem}.h-80{height:20rem}.h-9{height:2.25rem}.h-auto{height:auto}.h-full{height:100%}.h-px{height:1px}.min-h-screen{min-height:100vh}.min-h-\[4\.5rem\]{min-height:4.5rem}.w-1\.5{width:0.375rem}.w-10{width:2.5rem}.w-12{width:3rem}.w-16{width:4rem}.w-2{width:0.5rem}.w-2\.5{width:0.625rem}.w-4{width:1rem}.w-80{width:20rem}.w-9{width:2.25rem}.w-full{width:100%}.max-w-2xl{max-width:42rem}.max-w-5xl{max-width:64rem}.max-w-md{max-width:28rem}.flex-1{flex:1 1 0%}.flex-shrink-0{flex-shrink:0}.rotate-3{--tw-rotate:3deg;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.scale-105{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes pulse{50%{opacity:.5}}.animate-pulse{animation:pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite}.scroll-mt-6{scroll-margin-top:1.5rem}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.items-baseline{align-items:baseline}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:0.25rem}.gap-1\.5{gap:0.375rem}.gap-2{gap:0.5rem}.gap-2\.5{gap:0.625rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.space-y-1\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.375rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.375rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-2\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.625rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.625rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.divide-y > :not([hidden]) ~ :not([hidden]){--tw-divide-y-reverse:0;border-top-width:calc(1px * calc(1 - var(--tw-divide-y-reverse)));border-bottom-width:calc(1px * var(--tw-divide-y-reverse))}.divide-slate-100 > :not([hidden]) ~ :not([hidden]){--tw-divide-opacity:1;border-color:rgb(241 245 249 / var(--tw-divide-opacity, 1))}.self-start{align-self:flex-start}.self-center{align-self:center}.overflow-hidden{overflow:hidden}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.rounded-bl-full{border-bottom-left-radius:9999px}.border{border-width:1px}.border-t{border-top-width:1px}.border-amber-200{--tw-border-opacity:1;border-color:rgb(253 230 138 / var(--tw-border-opacity, 1))}.border-amber-500\/30{border-color:rgb(245 158 11 / 0.3)}.border-blue-200{--tw-border-opacity:1;border-color:rgb(191 219 254 / var(--tw-border-opacity, 1))}.border-slate-100{--tw-border-opacity:1;border-color:rgb(241 245 249 / var(--tw-border-opacity, 1))}.border-slate-200{--tw-border-opacity:1;border-color:rgb(226 232 240 / var(--tw-border-opacity, 1))}.border-white\/10{border-color:rgb(255 255 255 / 0.1)}.bg-slate-50{--tw-bg-opacity:1;background-color:rgb(248 250 252 / var(--tw-bg-opacity, 1))}.bg-amber-100{--tw-bg-opacity:1;background-color:rgb(254 243 199 / var(--tw-bg-opacity, 1))}.bg-amber-400{--tw-bg-opacity:1;background-color:rgb(251 191 36 / var(--tw-bg-opacity, 1))}.bg-amber-50{--tw-bg-opacity:1;background-color:rgb(255 251 235 / var(--tw-bg-opacity, 1))}.bg-amber-500{--tw-bg-opacity:1;background-color:rgb(245 158 11 / var(--tw-bg-opacity, 1))}.bg-amber-500\/20{background-color:rgb(245 158 11 / 0.2)}.bg-blue-100{--tw-bg-opacity:1;background-color:rgb(219 234 254 / var(--tw-bg-opacity, 1))}.bg-blue-50{--tw-bg-opacity:1;background-color:rgb(239 246 255 / var(--tw-bg-opacity, 1))}.bg-blue-500{--tw-bg-opacity:1;background-color:rgb(59 130 246 / var(--tw-bg-opacity, 1))}.bg-emerald-100{--tw-bg-opacity:1;background-color:rgb(209 250 229 / var(--tw-bg-opacity, 1))}.bg-emerald-50{--tw-bg-opacity:1;background-color:rgb(236 253 245 / var(--tw-bg-opacity, 1))}.bg-indigo-50{--tw-bg-opacity:1;background-color:rgb(238 242 255 / var(--tw-bg-opacity, 1))}.bg-indigo-500{--tw-bg-opacity:1;background-color:rgb(99 102 241 / var(--tw-bg-opacity, 1))}.bg-kings-gold{--tw-bg-opacity:1;background-color:rgb(217 119 6 / var(--tw-bg-opacity, 1))}.bg-kings-goldLight{--tw-bg-opacity:1;background-color:rgb(254 243 199 / var(--tw-bg-opacity, 1))}.bg-kings-navy{--tw-bg-opacity:1;background-color:rgb(15 23 42 / var(--tw-bg-opacity, 1))}.bg-orange-100{--tw-bg-opacity:1;background-color:rgb(255 237 213 / var(--tw-bg-opacity, 1))}.bg-purple-100{--tw-bg-opacity:1;background-color:rgb(243 232 255 / var(--tw-bg-opacity, 1))}.bg-purple-50{--tw-bg-opacity:1;background-color:rgb(250 245 255 / var(--tw-bg-opacity, 1))}.bg-purple-500{--tw-bg-opacity:1;background-color:rgb(168 85 247 / var(--tw-bg-opacity, 1))}.bg-sky-100{--tw-bg-opacity:1;background-color:rgb(224 242 254 / var(--tw-bg-opacity, 1))}.bg-sky-50{--tw-bg-opacity:1;background-color:rgb(240 249 255 / var(--tw-bg-opacity, 1))}.bg-sky-500{--tw-bg-opacity:1;background-color:rgb(14 165 233 / var(--tw-bg-opacity, 1))}.bg-slate-200{--tw-bg-opacity:1;background-color:rgb(226 232 240 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-white\/10{background-color:rgb(255 255 255 / 0.1)}.bg-white\/20{background-color:rgb(255 255 255 / 0.2)}.bg-\[radial-gradient\(ellipse_at_top_right\2c _var\(--tw-gradient-stops\)\)\]{background-image:radial-gradient(ellipse at top right, var(--tw-gradient-stops))}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.bg-gradient-to-tr{background-image:linear-gradient(to top right, var(--tw-gradient-stops))}.from-kings-darkBlue{--tw-gradient-from:#1E293B var(--tw-gradient-from-position);--tw-gradient-to:rgb(30 41 59 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-kings-gold{--tw-gradient-from:#D97706 var(--tw-gradient-from-position);--tw-gradient-to:rgb(217 119 6 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-purple-600{--tw-gradient-from:#9333ea var(--tw-gradient-from-position);--tw-gradient-to:rgb(147 51 234 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-sky-600{--tw-gradient-from:#0284c7 var(--tw-gradient-from-position);--tw-gradient-to:rgb(2 132 199 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-kings-navy{--tw-gradient-to:rgb(15 23 42 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), #0F172A var(--tw-gradient-via-position), var(--tw-gradient-to)}.to-amber-300{--tw-gradient-to:#fcd34d var(--tw-gradient-to-position)}.to-black{--tw-gradient-to:#000 var(--tw-gradient-to-position)}.to-purple-400{--tw-gradient-to:#c084fc var(--tw-gradient-to-position)}.to-sky-400{--tw-gradient-to:#38bdf8 var(--tw-gradient-to-position)}.p-1\.5{padding:0.375rem}.p-2{padding:0.5rem}.p-2\.5{padding:0.625rem}.p-3{padding:0.75rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.px-1{padding-left:0.25rem;padding-right:0.25rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-2\.5{padding-left:0.625rem;padding-right:0.625rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-10{padding-top:2.5rem;padding-bottom:2.5rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.pb-4{padding-bottom:1rem}.pl-4{padding-left:1rem}.pr-8{padding-right:2rem}.pt-3{padding-top:0.75rem}.pt-3\.5{padding-top:0.875rem}.text-left{text-align:left}.text-center{text-align:center}.font-sans{font-family:Noto Sans KR, sans-serif}.font-mont{font-family:Montserrat, sans-serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-\[9px\]{font-size:9px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-black{font-weight:900}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.normal-case{text-transform:none}.leading-none{line-height:1}.leading-normal{line-height:1.5}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.tracking-\[0\.25em\]{letter-spacing:0.25em}.tracking-tight{letter-spacing:-0.025em}.tracking-tighter{letter-spacing:-0.05em}.tracking-wide{letter-spacing:0.025em}.tracking-wider{letter-spacing:0.05em}.text-slate-800{--tw-text-opacity:1;color:rgb(30 41 59 / var(--tw-text-opacity, 1))}.text-amber-300{--tw-text-opacity:1;color:rgb(252 211 77 / var(--tw-text-opacity, 1))}.text-amber-400{--tw-text-opacity:1;color:rgb(251 191 36 / var(--tw-text-opacity, 1))}.text-amber-500{--tw-text-opacity:1;color:rgb(245 158 11 / var(--tw-text-opacity, 1))}.text-amber-600{--tw-text-opacity:1;color:rgb(217 119 6 / var(--tw-text-opacity, 1))}.text-blue-500{--tw-text-opacity:1;color:rgb(59 130 246 / var(--tw-text-opacity, 1))}.text-blue-600{--tw-text-opacity:1;color:rgb(37 99 235 / var(--tw-text-opacity, 1))}.text-blue-800{--tw-text-opacity:1;color:rgb(30 64 175 / var(--tw-text-opacity, 1))}.text-emerald-600{--tw-text-opacity:1;color:rgb(5 150 105 / var(--tw-text-opacity, 1))}.text-emerald-800{--tw-text-opacity:1;color:rgb(6 95 70 / var(--tw-text-opacity, 1))}.text-indigo-400{--tw-text-opacity:1;color:rgb(129 140 248 / var(--tw-text-opacity, 1))}.text-indigo-600{--tw-text-opacity:1;color:rgb(79 70 229 / var(--tw-text-opacity, 1))}.text-kings-gold{--tw-text-opacity:1;color:rgb(217 119 6 / var(--tw-text-opacity, 1))}.text-kings-navy{--tw-text-opacity:1;color:rgb(15 23 42 / var(--tw-text-opacity, 1))}.text-orange-800{--tw-text-opacity:1;color:rgb(154 52 18 / var(--tw-text-opacity, 1))}.text-purple-400{--tw-text-opacity:1;color:rgb(192 132 252 / var(--tw-text-opacity, 1))}.text-purple-600{--tw-text-opacity:1;color:rgb(147 51 234 / var(--tw-text-opacity, 1))}.text-purple-700{--tw-text-opacity:1;color:rgb(126 34 206 / var(--tw-text-opacity, 1))}.text-sky-400{--tw-text-opacity:1;color:rgb(56 189 248 / var(--tw-text-opacity, 1))}.text-sky-600{--tw-text-opacity:1;color:rgb(2 132 199 / var(--tw-text-opacity, 1))}.text-sky-700{--tw-text-opacity:1;color:rgb(3 105 161 / var(--tw-text-opacity, 1))}.text-slate-300{--tw-text-opacity:1;color:rgb(203 213 225 / var(--tw-text-opacity, 1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity, 1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139 / var(--tw-text-opacity, 1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105 / var(--tw-text-opacity, 1))}.text-slate-700{--tw-text-opacity:1;color:rgb(51 65 85 / var(--tw-text-opacity, 1))}.text-slate-900{--tw-text-opacity:1;color:rgb(15 23 42 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-white\/50{color:rgb(255 255 255 / 0.5)}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.opacity-20{opacity:0.2}.opacity-90{opacity:0.9}.shadow-inner{--tw-shadow:inset 0 2px 4px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:inset 0 2px 4px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.ring-1{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.ring-amber-300{--tw-ring-opacity:1;--tw-ring-color:rgb(252 211 77 / var(--tw-ring-opacity, 1))}.blur-\[120px\]{--tw-blur:blur(120px);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-shadow{transition-property:box-shadow;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-1000{transition-duration:1000ms}.duration-300{transition-duration:300ms}.ease-out{transition-timing-function:cubic-bezier(0, 0, 0.2, 1)}.hover\:rotate-0:hover{--tw-rotate:0deg;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:border-emerald-300:hover{--tw-border-opacity:1;border-color:rgb(110 231 183 / var(--tw-border-opacity, 1))}.hover\:border-emerald-500:hover{--tw-border-opacity:1;border-color:rgb(16 185 129 / var(--tw-border-opacity, 1))}.hover\:border-indigo-500:hover{--tw-border-opacity:1;border-color:rgb(99 102 241 / var(--tw-border-opacity, 1))}.hover\:border-kings-gold:hover{--tw-border-opacity:1;border-color:rgb(217 119 6 / var(--tw-border-opacity, 1))}.hover\:border-purple-300:hover{--tw-border-opacity:1;border-color:rgb(216 180 254 / var(--tw-border-opacity, 1))}.hover\:border-purple-500:hover{--tw-border-opacity:1;border-color:rgb(168 85 247 / var(--tw-border-opacity, 1))}.hover\:border-sky-500:hover{--tw-border-opacity:1;border-color:rgb(14 165 233 / var(--tw-border-opacity, 1))}.hover\:bg-amber-600:hover{--tw-bg-opacity:1;background-color:rgb(217 119 6 / var(--tw-bg-opacity, 1))}.hover\:bg-emerald-50:hover{--tw-bg-opacity:1;background-color:rgb(236 253 245 / var(--tw-bg-opacity, 1))}.hover\:bg-purple-50:hover{--tw-bg-opacity:1;background-color:rgb(250 245 255 / var(--tw-bg-opacity, 1))}.hover\:bg-slate-100:hover{--tw-bg-opacity:1;background-color:rgb(241 245 249 / var(--tw-bg-opacity, 1))}.hover\:bg-slate-50:hover{--tw-bg-opacity:1;background-color:rgb(248 250 252 / var(--tw-bg-opacity, 1))}.hover\:text-emerald-800:hover{--tw-text-opacity:1;color:rgb(6 95 70 / var(--tw-text-opacity, 1))}.hover\:text-purple-800:hover{--tw-text-opacity:1;color:rgb(107 33 168 / var(--tw-text-opacity, 1))}.hover\:shadow-md:hover{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.group:hover .group-hover\:text-emerald-500{--tw-text-opacity:1;color:rgb(16 185 129 / var(--tw-text-opacity, 1))}.group:hover .group-hover\:text-emerald-600{--tw-text-opacity:1;color:rgb(5 150 105 / var(--tw-text-opacity, 1))}.group:hover .group-hover\:text-indigo-500{--tw-text-opacity:1;color:rgb(99 102 241 / var(--tw-text-opacity, 1))}.group:hover .group-hover\:text-indigo-600{--tw-text-opacity:1;color:rgb(79 70 229 / var(--tw-text-opacity, 1))}.group:hover .group-hover\:text-kings-gold{--tw-text-opacity:1;color:rgb(217 119 6 / var(--tw-text-opacity, 1))}.group:hover .group-hover\:text-purple-500{--tw-text-opacity:1;color:rgb(168 85 247 / var(--tw-text-opacity, 1))}.group:hover .group-hover\:text-purple-600{--tw-text-opacity:1;color:rgb(147 51 234 / var(--tw-text-opacity, 1))}.group:hover .group-hover\:text-sky-500{--tw-text-opacity:1;color:rgb(14 165 233 / var(--tw-text-opacity, 1))}.group:hover .group-hover\:text-sky-600{--tw-text-opacity:1;color:rgb(2 132 199 / var(--tw-text-opacity, 1))}@media (min-width: 640px){.sm\:mb-8{margin-bottom:2rem}.sm\:h-10{height:2.5rem}.sm\:h-14{height:3.5rem}.sm\:h-24{height:6rem}.sm\:h-5{height:1.25rem}.sm\:h-6{height:1.5rem}.sm\:w-10{width:2.5rem}.sm\:w-14{width:3.5rem}.sm\:w-2\.5{width:0.625rem}.sm\:w-24{width:6rem}.sm\:w-5{width:1.25rem}.sm\:w-auto{width:auto}.sm\:w-px{width:1px}.sm\:grid-cols-12{grid-template-columns:repeat(12, minmax(0, 1fr))}.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.sm\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.sm\:grid-cols-8{grid-template-columns:repeat(8, minmax(0, 1fr))}.sm\:flex-row{flex-direction:row}.sm\:items-center{align-items:center}.sm\:gap-2{gap:0.5rem}.sm\:gap-2\.5{gap:0.625rem}.sm\:gap-3{gap:0.75rem}.sm\:gap-4{gap:1rem}.sm\:gap-6{gap:1.5rem}.sm\:space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.sm\:space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.sm\:space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.sm\:space-y-5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.25rem * var(--tw-space-y-reverse))}.sm\:space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.sm\:space-y-8 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(2rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(2rem * var(--tw-space-y-reverse))}.sm\:self-auto{align-self:auto}.sm\:rounded-2xl{border-radius:1rem}.sm\:rounded-3xl{border-radius:1.5rem}.sm\:p-3{padding:0.75rem}.sm\:p-4{padding:1rem}.sm\:p-5{padding:1.25rem}.sm\:p-6{padding:1.5rem}.sm\:p-8{padding:2rem}.sm\:px-4{padding-left:1rem;padding-right:1rem}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.sm\:py-3{padding-top:0.75rem;padding-bottom:0.75rem}.sm\:py-5{padding-top:1.25rem;padding-bottom:1.25rem}.sm\:py-8{padding-top:2rem;padding-bottom:2rem}.sm\:pb-6{padding-bottom:1.5rem}.sm\:pl-6{padding-left:1.5rem}.sm\:pt-4{padding-top:1rem}.sm\:text-2xl{font-size:1.5rem;line-height:2rem}.sm\:text-3xl{font-size:1.875rem;line-height:2.25rem}.sm\:text-\[10px\]{font-size:10px}.sm\:text-\[11px\]{font-size:11px}.sm\:text-base{font-size:1rem;line-height:1.5rem}.sm\:text-lg{font-size:1.125rem;line-height:1.75rem}.sm\:text-sm{font-size:0.875rem;line-height:1.25rem}.sm\:text-xl{font-size:1.25rem;line-height:1.75rem}.sm\:text-xs{font-size:0.75rem;line-height:1rem}}@media (min-width: 768px){.md\:w-auto{width:auto}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:items-center{align-items:center}.md\:justify-between{justify-content:space-between}}@media (min-width: 1024px){.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.lg\:grid-cols-5{grid-template-columns:repeat(5, minmax(0, 1fr))}.lg\:px-8{padding-left:2rem;padding-right:2rem}}</style></head>
+<body class="bg-slate-50 font-sans text-slate-800 antialiased min-h-screen">
+
+    <header class="bg-kings-navy text-white relative overflow-hidden py-10 px-4 sm:px-6 lg:px-8 shadow-xl">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-kings-darkBlue via-kings-navy to-black opacity-90"></div>
+        <div class="absolute -right-20 -top-20 w-80 h-80 bg-kings-gold rounded-full blur-[120px] opacity-20"></div>
+        
+        <div class="relative max-w-5xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div class="flex items-center gap-3 sm:gap-4">
+                <div class="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-tr from-kings-gold to-amber-300 rounded-2xl flex items-center justify-center shadow-lg transform rotate-3 hover:rotate-0 transition-transform duration-300">
+                    <i class="fa-solid fa-crown text-kings-navy text-xl sm:text-2xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-[10px] sm:text-xs font-bold font-mont tracking-[0.25em] text-amber-400 uppercase">THE KINGS EDU.</h1>
+                    <p class="text-xl sm:text-2xl font-bold font-sans tracking-tight">더킹스학원</p>
+                </div>
+            </div>
+
+            <div class="bg-white/10 backdrop-blur-md rounded-2xl p-4 sm:p-5 border border-white/10 shadow-inner flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 w-full md:w-auto">
+                <div class="space-y-1">
+                    <div class="flex flex-wrap items-center gap-2">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                            ID : thekings364
+                        </span>
+                        <button onclick="downloadHTML()" class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs font-bold bg-amber-500 hover:bg-amber-600 text-kings-navy transition-all shadow-sm">
+                            <i class="fa-solid fa-download"></i> 다운로드
+                        </button>
+                    </div>
+                    <h2 class="text-lg sm:text-xl font-bold tracking-tight">6월 Monthly Report</h2>
+                </div>
+                <div class="h-px sm:h-10 w-full sm:w-px bg-white/20"></div>
+                <div class="flex items-center gap-4 w-full sm:w-auto">
+                    <div class="text-left">
+                        <p class="text-[11px] sm:text-xs text-slate-300 font-semibold uppercase tracking-wider">중등부 1학년</p>
+                        <p class="text-base sm:text-lg font-bold text-white tracking-tight"><span class="text-amber-300">조윤아</span> 학생</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+        <div class="bg-white p-1.5 rounded-2xl shadow-sm border border-slate-100 mb-6 sm:mb-8 flex gap-1.5 sm:gap-2">
+            <button onclick="switchTab('english')" id="tab-english" class="tab-button flex-1 py-2.5 sm:py-3 px-2 sm:px-4 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-1.5 transition-all duration-300 bg-kings-navy text-white shadow-md">
+                <svg class="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                </svg>
+                <span class="tracking-tight">ENGLISH (영어)</span>
+            </button>
+            <button onclick="switchTab('math')" id="tab-math" class="tab-button flex-1 py-2.5 sm:py-3 px-2 sm:px-4 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-1.5 transition-all duration-300 text-slate-500 hover:bg-slate-50">
+                <svg class="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 21H4V4l17 17z"></path>
+                    <path d="M15 18H8v-7"></path>
+                </svg>
+                <span class="tracking-tight">MATH (수학)</span>
+            </button>
+        </div>
+
+        <div id="content-english" class="tab-content space-y-6 sm:space-y-8">
+            <div class="bg-white rounded-3xl p-5 sm:p-8 shadow-sm border border-slate-100 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-16 h-16 sm:w-24 sm:h-24 bg-kings-goldLight rounded-bl-full flex items-center justify-center pl-4 pb-4 sm:pl-6 sm:pb-6">
+                    <i class="fa-solid fa-pen-nib text-kings-gold text-lg sm:text-2xl"></i>
+                </div>
+                <div class="max-w-2xl space-y-4 sm:space-y-5 pr-8">
+                    <h3 class="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2">
+                        <span class="inline-block w-2.5 h-6 bg-kings-gold rounded-full"></span>
+                        영어 주요 학습 요약
+                    </h3>
+                    
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                            <div class="mt-0.5 bg-kings-goldLight text-kings-gold w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 text-[9px]"><i class="fa-solid fa-check"></i></div>
+                            <div><strong class="text-slate-800">[영어논술]</strong> OK Writing 시리즈 전과정 확습 완료함</div>
+                        </li>
+                        <li class="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                            <div class="mt-0.5 bg-kings-goldLight text-kings-gold w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 text-[9px]"><i class="fa-solid fa-check"></i></div>
+                            <div><strong class="text-slate-800">[내신 교과서]</strong> 중1 동아(이병민, 본문) - Lesson 5 학습 진행 중</div>
+                        </li>
+                        <li class="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                            <div class="mt-0.5 bg-kings-goldLight text-kings-gold w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 text-[9px]"><i class="fa-solid fa-check"></i></div>
+                            <div><strong class="text-slate-800">[독해]</strong> 리딩튜터 주니어 1, [S05.1 올림픽에 이 종목이?!] 학습 진행 중</div>
+                        </li>
+                        <li class="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                            <div class="mt-0.5 bg-kings-goldLight text-kings-gold w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 text-[9px]"><i class="fa-solid fa-check"></i></div>
+                            <div><strong class="text-slate-800">[어휘]</strong> 중등 필수 VOCA 학습 진행 중</div>
+                        </li>
+                        <li class="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                            <div class="mt-0.5 bg-kings-goldLight text-kings-gold w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 text-[9px]"><i class="fa-solid fa-check"></i></div>
+                            <div><strong class="text-slate-800">[문법]</strong> Grammar Inside Level 1, [CHAPTER 07 대명사] 학습 진행 중, 클래스카드 문법훈련 학습 진행 중</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                <a href="#writing-section" class="group bg-white p-5 sm:p-6 rounded-2xl sm:rounded-3xl shadow-sm border border-slate-100 flex flex-col justify-between hover:border-kings-gold hover:shadow-md transition-all duration-300">
+                    <div class="space-y-3 sm:space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] font-bold text-kings-gold bg-kings-goldLight px-2.5 py-1 rounded-full uppercase tracking-wider font-mont">WRITING</span>
+                            <span class="text-[11px] font-semibold text-slate-400 group-hover:text-kings-gold flex items-center gap-1 transition-colors">상세진도 바로가기 <i class="fa-solid fa-arrow-down text-[10px]"></i></span>
+                        </div>
+                        <h4 class="text-base sm:text-lg font-bold text-slate-900 group-hover:text-kings-gold transition-colors">영어논술 – OK Writing Series</h4>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">단순한 문장 작성을 넘어, 생각을 문장으로 조직하고 표현하는 능력을 기르는 영어논술 프로그램입니다. 영어 어순과 문장 구조를 기반으로 문장을 직접 만들고 확장하며, 영어를 논리적으로 이해하고 표현하는 힘을 길러줍니다. 읽기·듣기·말하기·쓰기 전 영역의 기초가 되는 핵심 과정입니다.</p>
+                    </div>
+                    <div class="pt-3 sm:pt-4 mt-4 border-t border-slate-100"><div class="flex justify-between items-center text-[11px] sm:text-xs text-slate-500"><span>핵심 역량</span><span class="font-semibold text-slate-700">논리적 표현, 영어 사고력</span></div></div>
+                </a>
+
+                <a href="#comprehension-section" class="group bg-white p-5 sm:p-6 rounded-2xl sm:rounded-3xl shadow-sm border border-slate-100 flex flex-col justify-between hover:border-indigo-500 hover:shadow-md transition-all duration-300">
+                    <div class="space-y-3 sm:space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] font-bold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-full uppercase tracking-wider font-mont">READING COMP.</span>
+                            <span class="text-[11px] font-semibold text-slate-400 group-hover:text-indigo-500 flex items-center gap-1 transition-colors">상세진도 바로가기 <i class="fa-solid fa-arrow-down text-[10px]"></i></span>
+                        </div>
+                        <h4 class="text-base sm:text-lg font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">독해 – 리딩튜터 주니어 1</h4>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">단순 해석에 머무르지 않고 문장 구조와 글의 흐름을 분석하며 내용을 이해하는 독해 프로그램입니다. 문장 성분과 어순의 역할을 바탕으로 글의 구조를 파악하며, 읽는 과정에서 사고가 함께 이루어지는 독해력을 기릅니다. 이를 통해 직독직해와 내용 이해 능력을 자연스럽게 향상시킵니다.</p>
+                    </div>
+                    <div class="pt-3 sm:pt-4 mt-4 border-t border-slate-100"><div class="flex justify-between items-center text-[11px] sm:text-xs text-slate-500"><span>핵심 역량</span><span class="font-semibold text-slate-700">직독직해, 문장 구조 분석</span></div></div>
+                </a>
+
+                <a href="#textbook-progress-section" class="group bg-white p-5 sm:p-6 rounded-2xl sm:rounded-3xl shadow-sm border border-slate-100 flex flex-col justify-between hover:border-sky-500 hover:shadow-md transition-all duration-300">
+                    <div class="space-y-3 sm:space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] font-bold text-sky-600 bg-sky-50 px-2.5 py-1 rounded-full uppercase tracking-wider font-mont">TEXTBOOK</span>
+                            <span class="text-[11px] font-semibold text-slate-400 group-hover:text-sky-500 flex items-center gap-1 transition-colors">상세진도 바로가기 <i class="fa-solid fa-arrow-down text-[10px]"></i></span>
+                        </div>
+                        <h4 class="text-base sm:text-lg font-bold text-slate-900 group-hover:text-sky-600 transition-colors">교과서 - 중1 동아(이병민)</h4>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">학교 교과 단계를 밟아가며 직독직해 학습을 완성하는 내신 대비 필수 과정입니다. 각 과의 핵심 대화문과 본문 분석, 그리고 문법적 쓰임새를 입체적으로 마스터하여 단순 지문 암기가 아닌 실질적인 문맥 해석력을 키워줍니다.</p>
+                    </div>
+                    <div class="pt-3 sm:pt-4 mt-4 border-t border-slate-100"><div class="flex justify-between items-center text-[11px] sm:text-xs text-slate-500"><span>핵심 역량</span><span class="font-semibold text-slate-700">구문 직독직해, 문맥 및 흐름 파악</span></div></div>
+                </a>
+
+                <a href="#grammar-progress-section" class="group bg-white p-5 sm:p-6 rounded-2xl sm:rounded-3xl shadow-sm border border-slate-100 flex flex-col justify-between hover:border-purple-500 hover:shadow-md transition-all duration-300">
+                    <div class="space-y-3 sm:space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] font-bold text-purple-600 bg-purple-50 px-2.5 py-1 rounded-full uppercase tracking-wider font-mont">GRAMMAR</span>
+                            <span class="text-[11px] font-semibold text-slate-400 group-hover:text-purple-500 flex items-center gap-1 transition-colors">상세진도 바로가기 <i class="fa-solid fa-arrow-down text-[10px]"></i></span>
+                        </div>
+                        <h4 class="text-base sm:text-lg font-bold text-slate-900 group-hover:text-purple-600 transition-colors">문법 – Grammar Inside / 문법훈련</h4>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">영어논술을 통해 익힌 문법 개념을 문제 적용 훈련으로 체계적으로 정리하는 문법 프로그램입니다. 문장 속에서 이해한 문법 원리를 다양한 문제 유형에 적용하며 문법 이해를 완성합니다. 실전 내신과 문법 학습에 필요한 실력을 안정적으로 구축합니다.</p>
+                    </div>
+                    <div class="pt-3 sm:pt-4 mt-4 border-t border-slate-100"><div class="flex justify-between items-center text-[11px] sm:text-xs text-slate-500"><span>학습 연계</span><span class="font-semibold text-slate-700">영작·문법 개념 통합 학습</span></div></div>
+                </a>
+
+                <a href="#vocab-section" class="group bg-white p-5 sm:p-6 rounded-2xl sm:rounded-3xl shadow-sm border border-slate-100 flex flex-col justify-between hover:border-emerald-500 hover:shadow-md transition-all duration-300">
+                    <div class="space-y-3 sm:space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full uppercase tracking-wider font-mont">VOCABULARY</span>
+                            <span class="text-[11px] font-semibold text-slate-400 group-hover:text-emerald-500 flex items-center gap-1 transition-colors">상세진도 바로가기 <i class="fa-solid fa-arrow-down text-[10px]"></i></span>
+                        </div>
+                        <h4 class="text-base sm:text-lg font-bold text-slate-900 group-hover:text-emerald-600 transition-colors">어휘 – The King's Vocabulary</h4>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">체계적인 반복·누적 학습을 통해 필수 어휘를 장기 기억으로 정착시키는 어휘 프로그램입니다. 학습한 단어를 지속적으로 복습하고 오답을 관리하여 망각을 최소화하며, 안정적인 어휘력을 형성합니다. 영어 학습 전반의 기초가 되는 필수 어휘 실력을 완성하도록 지도합니다.</p>
+                    </div>
+                    <div class="pt-3 sm:pt-4 mt-4 border-t border-slate-100"><div class="flex justify-between items-center text-[11px] sm:text-xs text-slate-500"><span>학습 방식</span><span class="font-semibold text-slate-700">반복·누적 학습, 오답 관리</span></div></div>
+                </a>
+            </div>
+
+            <div id="writing-section" class="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden scroll-mt-6">
+                <div class="bg-kings-navy text-white px-5 py-4 sm:px-6 sm:py-5 flex items-center justify-between">
+                    <div class="flex items-center gap-2.5">
+                        <i class="fa-solid fa-pen-fancy text-amber-400 text-sm sm:text-base"></i>
+                        <h4 class="font-bold text-sm sm:text-base">영어논술 — OK Writing 시리즈 (전과정 완료)</h4>
+                    </div>
+                </div>
+                
+                <div class="divide-y divide-slate-100">
+                    <div class="p-4 sm:p-6 space-y-3 sm:space-y-4">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                            <h5 class="font-bold text-slate-800 text-xs sm:text-sm flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-kings-gold flex-shrink-0"></span>
+                                [OK Writing 2] 어순 체화 영작 및 스토리 쓰기
+                            </h5>
+                            <span class="self-start sm:self-auto px-2 py-0.5 text-[10px] sm:text-xs font-semibold bg-emerald-100 text-emerald-800 rounded-lg">Perfect Complete</span>
+                        </div>
+                        <div class="bg-slate-50 p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-slate-100 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3">
+                            <a href="http://www.classcard.net/ParagraphShare/1364137/18896062/6984010/0" target="_blank" class="p-2 sm:p-3 bg-white rounded-lg border border-slate-200 text-center text-xs text-slate-700 hover:border-kings-gold hover:shadow-md transition-all block"><div class="font-bold text-kings-navy mb-0.5">Part 1 소유격(‘s)(1)</div><span class="text-[10px] text-slate-400">중1 문법 완벽 연계 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></span></a>
+                            <a href="http://www.classcard.net/ParagraphShare/1364137/18896068/6984010/0" target="_blank" class="p-2 sm:p-3 bg-white rounded-lg border border-slate-200 text-center text-xs text-slate-700 hover:border-kings-gold hover:shadow-md transition-all block"><div class="font-bold text-kings-navy mb-0.5">Part 1 소유격(‘s)(2)</div><span class="text-[10px] text-slate-400">중1 문법 완벽 연계 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></span></a>
+                            <a href="http://www.classcard.net/ParagraphShare/1364137/18896074/6984010/0" target="_blank" class="p-2 sm:p-3 bg-white rounded-lg border border-slate-200 text-center text-xs text-slate-700 hover:border-kings-gold hover:shadow-md transition-all block"><div class="font-bold text-kings-navy mb-0.5">Part 2 There is / are</div><span class="text-[10px] text-slate-400">중1 문법 완벽 연계 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></span></a>
+                            <a href="http://www.classcard.net/ParagraphShare/1364137/18896078/6984010/0" target="_blank" class="p-2 sm:p-3 bg-white rounded-lg border border-slate-200 text-center text-xs text-slate-700 hover:border-kings-gold hover:shadow-md transition-all block"><div class="font-bold text-kings-navy mb-0.5">Part 3 but과 because</div><span class="text-[10px] text-slate-400">중1&amp;2 문법 완벽 연계 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></span></a>
+                            <a href="http://www.classcard.net/ParagraphShare/1364137/18896084/6984010/0" target="_blank" class="p-2 sm:p-3 bg-white rounded-lg border border-slate-200 text-center text-xs text-slate-700 hover:border-kings-gold hover:shadow-md transition-all block"><div class="font-bold text-kings-navy mb-0.5">Part 4 대상이 2개인 문장</div><span class="text-[10px] text-slate-400">중1&amp;2 문법 완벽 연계 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></span></a>
+                            <a href="http://www.classcard.net/ParagraphShare/1364137/18896094/6984010/0" target="_blank" class="p-2 sm:p-3 bg-white rounded-lg border border-slate-200 text-center text-xs text-slate-700 hover:border-kings-gold hover:shadow-md transition-all block"><div class="font-bold text-kings-navy mb-0.5">Part 5 의문문 (be동사)</div><span class="text-[10px] text-slate-400">중1 문법 완벽 연계 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></span></a>
+                            <a href="http://www.classcard.net/ParagraphShare/1364137/18896097/6984010/0" target="_blank" class="p-2 sm:p-3 bg-white rounded-lg border border-slate-200 text-center text-xs text-slate-700 hover:border-kings-gold hover:shadow-md transition-all block"><div class="font-bold text-kings-navy mb-0.5">Part 6 주인공+look+형용사</div><span class="text-[10px] text-slate-400">중1&amp;2 문법 완벽 연계 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></span></a>
+                            <a href="http://www.classcard.net/ParagraphShare/1364137/18896103/6984010/0" target="_blank" class="p-2 sm:p-3 bg-white rounded-lg border border-slate-200 text-center text-xs text-slate-700 hover:border-kings-gold hover:shadow-md transition-all block"><div class="font-bold text-kings-navy mb-0.5">Part 7 부정문(don’t)(1)</div><span class="text-[10px] text-slate-400">중1 문법 완벽 연계 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></span></a>
+                            <a href="http://www.classcard.net/ParagraphShare/1364137/18896107/6984010/0" target="_blank" class="p-2 sm:p-3 bg-white rounded-lg border border-slate-200 text-center text-xs text-slate-700 hover:border-kings-gold hover:shadow-md transition-all block"><div class="font-bold text-kings-navy mb-0.5">Part 7 부정문(don’t)(2)</div><span class="text-[10px] text-slate-400">중1 문법 완벽 연계 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></span></a>
+                        </div>
+                    </div>
+
+                    <div class="p-4 sm:p-6 space-y-3 sm:space-y-4">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                            <h5 class="font-bold text-slate-800 text-xs sm:text-sm flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-kings-gold flex-shrink-0"></span>
+                                [Bridge Writing 2] 어순 체화 영작 및 스토리 쓰기
+                            </h5>
+                            <span class="self-start sm:self-auto px-2 py-0.5 text-[10px] sm:text-xs font-semibold bg-emerald-100 text-emerald-800 rounded-lg">Perfect Complete</span>
+                        </div>
+                        <div class="bg-slate-50 p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-slate-100 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3">
+                            <a href="http://www.classcard.net/ParagraphShare/1400468/19355812/6984010/0" target="_blank" class="p-2 sm:p-3 bg-white rounded-lg border border-slate-200 text-center text-xs text-slate-700 hover:border-kings-gold hover:shadow-md transition-all block"><div class="font-bold text-kings-navy mb-0.5">Part 1 의문사be동사(1)</div><span class="text-[10px] text-slate-400">중1 문법 완벽 연계 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></span></a>
+                            <a href="http://www.classcard.net/ParagraphShare/1400468/19355820/6984010/0" target="_blank" class="p-2 sm:p-3 bg-white rounded-lg border border-slate-200 text-center text-xs text-slate-700 hover:border-kings-gold hover:shadow-md transition-all block"><div class="font-bold text-kings-navy mb-0.5">Part 1 의문사be동사(2)</div><span class="text-[10px] text-slate-400">중1 문법 완벽 연계 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></span></a>
+                            <a href="http://www.classcard.net/ParagraphShare/1400468/19355825/6984010/0" target="_blank" class="p-2 sm:p-3 bg-white rounded-lg border border-slate-200 text-center text-xs text-slate-700 hover:border-kings-gold hover:shadow-md transition-all block"><div class="font-bold text-kings-navy mb-0.5">Part 2 3인칭 단수(1)</div><span class="text-[10px] text-slate-400">중1&amp;2 문법 완벽 연계 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></span></a>
+                            <a href="http://www.classcard.net/ParagraphShare/1400468/19355830/6984010/0" target="_blank" class="p-2 sm:p-3 bg-white rounded-lg border border-slate-200 text-center text-xs text-slate-700 hover:border-kings-gold hover:shadow-md transition-all block"><div class="font-bold text-kings-navy mb-0.5">Part 2 3인칭 단수(2)</div><span class="text-[10px] text-slate-400">중1&amp;2 문법 완벽 연계 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></span></a>
+                            <a href="http://www.classcard.net/ParagraphShare/1400468/19355834/6984010/0" target="_blank" class="p-2 sm:p-3 bg-white rounded-lg border border-slate-200 text-center text-xs text-slate-700 hover:border-kings-gold hover:shadow-md transition-all block"><div class="font-bold text-kings-navy mb-0.5">Part 3 주인공+동작+형용사</div><span class="text-[10px] text-slate-400">중1&amp;2 문법 완벽 연계 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></span></a>
+                            <a href="http://www.classcard.net/ParagraphShare/1400468/19355840/6984010/0" target="_blank" class="p-2 sm:p-3 bg-white rounded-lg border border-slate-200 text-center text-xs text-slate-700 hover:border-kings-gold hover:shadow-md transition-all block"><div class="font-bold text-kings-navy mb-0.5">Part 4 조동사 will(1)</div><span class="text-[10px] text-slate-400">중1&amp;2 문법 완벽 연계 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></span></a>
+                            <a href="http://www.classcard.net/ParagraphShare/1400468/19355845/6984010/0" target="_blank" class="p-2 sm:p-3 bg-white rounded-lg border border-slate-200 text-center text-xs text-slate-700 hover:border-kings-gold hover:shadow-md transition-all block"><div class="font-bold text-kings-navy mb-0.5">Part 4 조동사 will(2)</div><span class="text-[10px] text-slate-400">중1&amp;2 문법 완벽 연계 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></span></a>
+                            <a href="http://www.classcard.net/ParagraphShare/1400468/19355849/6984010/0" target="_blank" class="p-2 sm:p-3 bg-white rounded-lg border border-slate-200 text-center text-xs text-slate-700 hover:border-kings-gold hover:shadow-md transition-all block"><div class="font-bold text-kings-navy mb-0.5">Part 4 조동사 will(3)</div><span class="text-[10px] text-slate-400">중1&amp;2 문법 완벽 연계 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></span></a>
+                            <a href="http://www.classcard.net/ParagraphShare/1400468/19355863/6984010/0" target="_blank" class="p-2 sm:p-3 bg-white rounded-lg border border-slate-200 text-center text-xs text-slate-700 hover:border-kings-gold hover:shadow-md transition-all block"><div class="font-bold text-kings-navy mb-0.5">Part 5 소유격(‘s)</div><span class="text-[10px] text-slate-400">중1 문법 완벽 연계 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></span></a>
+                            <a href="http://www.classcard.net/ParagraphShare/1400468/19355870/6984010/0" target="_blank" class="p-2 sm:p-3 bg-white rounded-lg border border-slate-200 text-center text-xs text-slate-700 hover:border-kings-gold hover:shadow-md transition-all block"><div class="font-bold text-kings-navy mb-0.5">Part 6 Please 명령문</div><span class="text-[10px] text-slate-400">중1 문법 완벽 연계 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></span></a>
+                        </div>
+                    </div>
+
+                    <div class="p-4 sm:p-6 space-y-3 sm:space-y-4">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                            <h5 class="font-bold text-slate-800 text-xs sm:text-sm flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-kings-gold flex-shrink-0"></span>
+                                [OK Writing 3] 어순 체화 영작 및 스토리 쓰기
+                            </h5>
+                            <span class="self-start sm:self-auto px-2 py-0.5 text-[10px] sm:text-xs font-semibold bg-emerald-100 text-emerald-800 rounded-lg">Perfect Complete</span>
+                        </div>
+                        <div class="bg-slate-50 p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-slate-100 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3">
+                            <a href="http://www.classcard.net/ParagraphShare/1439417/19948332/6984010/0" target="_blank" class="p-2 sm:p-3 bg-white rounded-lg border border-slate-200 text-center text-xs text-slate-700 hover:border-kings-gold hover:shadow-md transition-all block"><div class="font-bold text-kings-navy mb-0.5">Part 1 소유격 (of)(1)</div><span class="text-[10px] text-slate-400">중1&amp;2 문법 완벽 연계 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></span></a>
+                            <a href="http://www.classcard.net/ParagraphShare/1439417/19948337/6984010/0" target="_blank" class="p-2 sm:p-3 bg-white rounded-lg border border-slate-200 text-center text-xs text-slate-700 hover:border-kings-gold hover:shadow-md transition-all block"><div class="font-bold text-kings-navy mb-0.5">Part 1 소유격 (of)(2)</div><span class="text-[10px] text-slate-400">중1&amp;2 문법 완벽 연계 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></span></a>
+                            <a href="http://www.classcard.net/ParagraphShare/1439417/19948341/6984010/0" target="_blank" class="p-2 sm:p-3 bg-white rounded-lg border border-slate-200 text-center text-xs text-slate-700 hover:border-kings-gold hover:shadow-md transition-all block"><div class="font-bold text-kings-navy mb-0.5">Part 2 to로 문장 늘리기</div><span class="text-[10px] text-slate-400">중1&amp;2 문법 완벽 연계 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></span></a>
+                            <a href="http://www.classcard.net/ParagraphShare/1439417/19948349/6984010/0" target="_blank" class="p-2 sm:p-3 bg-white rounded-lg border border-slate-200 text-center text-xs text-slate-700 hover:border-kings-gold hover:shadow-md transition-all block"><div class="font-bold text-kings-navy mb-0.5">Part 3 조동사 can(1)</div><span class="text-[10px] text-slate-400">중1&amp;2 문법 완벽 연계 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></span></a>
+                            <a href="http://www.classcard.net/ParagraphShare/1439417/19948360/6984010/0" target="_blank" class="p-2 sm:p-3 bg-white rounded-lg border border-slate-200 text-center text-xs text-slate-700 hover:border-kings-gold hover:shadow-md transition-all block"><div class="font-bold text-kings-navy mb-0.5">Part 3 조동사 can(2)</div><span class="text-[10px] text-slate-400">중1&amp;2 문법 완벽 연계 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></span></a>
+                            <a href="http://www.classcard.net/ParagraphShare/1439417/19948361/6984010/0" target="_blank" class="p-2 sm:p-3 bg-white rounded-lg border border-slate-200 text-center text-xs text-slate-700 hover:border-kings-gold hover:shadow-md transition-all block"><div class="font-bold text-kings-navy mb-0.5">Part 3 조동사 can(3)</div><span class="text-[10px] text-slate-400">중1&amp;2 문법 완벽 연계 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></span></a>
+                            <a href="http://www.classcard.net/ParagraphShare/1439417/19948367/6984010/0" target="_blank" class="p-2 sm:p-3 bg-white rounded-lg border border-slate-200 text-center text-xs text-slate-700 hover:border-kings-gold hover:shadow-md transition-all block"><div class="font-bold text-kings-navy mb-0.5">Part 4 비인칭 주어</div><span class="text-[10px] text-slate-400">중1&amp;2 문법 완벽 연계 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></span></a>
+                            <a href="http://www.classcard.net/ParagraphShare/1439417/19948369/6984010/0" target="_blank" class="p-2 sm:p-3 bg-white rounded-lg border border-slate-200 text-center text-xs text-slate-700 hover:border-kings-gold hover:shadow-md transition-all block"><div class="font-bold text-kings-navy mb-0.5">Part 5 Let’s~</div><span class="text-[10px] text-slate-400">중1 문법 완벽 연계 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></span></a>
+                            <a href="http://www.classcard.net/ParagraphShare/1439417/19948375/6984010/0" target="_blank" class="p-2 sm:p-3 bg-white rounded-lg border border-slate-200 text-center text-xs text-slate-700 hover:border-kings-gold hover:shadow-md transition-all block"><div class="font-bold text-kings-navy mb-0.5">Part 6 3인칭 단수(1)</div><span class="text-[10px] text-slate-400">중1&amp;2 문법 완벽 연계 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></span></a>
+                            <a href="http://www.classcard.net/ParagraphShare/1439417/19948376/6984010/0" target="_blank" class="p-2 sm:p-3 bg-white rounded-lg border border-slate-200 text-center text-xs text-slate-700 hover:border-kings-gold hover:shadow-md transition-all block"><div class="font-bold text-kings-navy mb-0.5">Part 6 3인칭 단수(2)</div><span class="text-[10px] text-slate-400">중1&amp;2 문법 완벽 연계 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></span></a>
+                            <a href="http://www.classcard.net/ParagraphShare/1439417/19948377/6984010/0" target="_blank" class="p-2 sm:p-3 bg-white rounded-lg border border-slate-200 text-center text-xs text-slate-700 hover:border-kings-gold hover:shadow-md transition-all block"><div class="font-bold text-kings-navy mb-0.5">Part 7 부정문(doesn’t)(1)</div><span class="text-[10px] text-slate-400">중1&amp;2 문법 완벽 연계 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></span></a>
+                            <a href="http://www.classcard.net/ParagraphShare/1439417/19948379/6984010/0" target="_blank" class="p-2 sm:p-3 bg-white rounded-lg border border-slate-200 text-center text-xs text-slate-700 hover:border-kings-gold hover:shadow-md transition-all block"><div class="font-bold text-kings-navy mb-0.5">Part 7 부정문(doesn’t)(2)</div><span class="text-[10px] text-slate-400">중1&amp;2 문법 완벽 연계 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></span></a>
+                        </div>
+                    </div>
+
+                    <div class="p-4 sm:p-6 space-y-3 sm:space-y-4">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                            <h5 class="font-bold text-slate-800 text-xs sm:text-sm flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-kings-gold flex-shrink-0"></span>
+                                [Bridge Writing 3] 어순 체화 영작 및 스토리 쓰기
+                            </h5>
+                            <span class="self-start sm:self-auto px-2 py-0.5 text-[10px] sm:text-xs font-semibold bg-emerald-100 text-emerald-800 rounded-lg">Perfect Complete</span>
+                        </div>
+                        <div class="bg-slate-50 p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-slate-100 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3">
+                            <a href="http://www.classcard.net/ParagraphShare/1500317/21052489/6984010/0" target="_blank" class="p-2 sm:p-3 bg-white rounded-lg border border-slate-200 text-center text-xs text-slate-700 hover:border-kings-gold hover:shadow-md transition-all block"><div class="font-bold text-kings-navy mb-0.5">Part 1 There is / There are</div><span class="text-[10px] text-slate-400">중1 문법 완벽 연계 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></span></a>
+                            <a href="http://www.classcard.net/ParagraphShare/1500317/21052492/6984010/0" target="_blank" class="p-2 sm:p-3 bg-white rounded-lg border border-slate-200 text-center text-xs text-slate-700 hover:border-kings-gold hover:shadow-md transition-all block"><div class="font-bold text-kings-navy mb-0.5">Part 2 소유격</div><span class="text-[10px] text-slate-400">중1 문법 완벽 연계 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></span></a>
+                            <a href="http://www.classcard.net/ParagraphShare/1500317/21052495/6984010/0" target="_blank" class="p-2 sm:p-3 bg-white rounded-lg border border-slate-200 text-center text-xs text-slate-700 hover:border-kings-gold hover:shadow-md transition-all block"><div class="font-bold text-kings-navy mb-0.5">Part 3 의문사 의문문(be동사)</div><span class="text-[10px] text-slate-400">중1 문법 완벽 연계 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></span></a>
+                            <a href="http://www.classcard.net/ParagraphShare/1500317/21052497/6984010/0" target="_blank" class="p-2 sm:p-3 bg-white rounded-lg border border-slate-200 text-center text-xs text-slate-700 hover:border-kings-gold hover:shadow-md transition-all block"><div class="font-bold text-kings-navy mb-0.5">Part 4 Don't 명령문</div><span class="text-[10px] text-slate-400">중1 문법 완벽 연계 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></span></a>
+                            <a href="http://www.classcard.net/ParagraphShare/1500317/21052500/6984010/0" target="_blank" class="p-2 sm:p-3 bg-white rounded-lg border border-slate-200 text-center text-xs text-slate-700 hover:border-kings-gold hover:shadow-md transition-all block"><div class="font-bold text-kings-navy mb-0.5">Part 5 조동사 can(1)</div><span class="text-[10px] text-slate-400">중1&amp;2 문법 완벽 연계 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></span></a>
+                            <a href="http://www.classcard.net/ParagraphShare/1500317/21052503/6984010/0" target="_blank" class="p-2 sm:p-3 bg-white rounded-lg border border-slate-200 text-center text-xs text-slate-700 hover:border-kings-gold hover:shadow-md transition-all block"><div class="font-bold text-kings-navy mb-0.5">Part 5 조동사 can(2)</div><span class="text-[10px] text-slate-400">중1&amp;2 문법 완벽 연계 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="comprehension-section" class="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden scroll-mt-6">
+                <div class="bg-kings-navy text-white px-5 py-4 sm:px-6 sm:py-5 flex items-center justify-between">
+                    <div class="flex items-center gap-2.5">
+                        <i class="fa-solid fa-book-open text-indigo-400 text-sm sm:text-base"></i>
+                        <h4 class="font-bold text-sm sm:text-base">독해 — 리딩튜터 시리즈</h4>
+                    </div>
+                </div>
+                
+                <div class="divide-y divide-slate-100">
+                    <div class="p-4 sm:p-6 space-y-4">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                            <h5 class="font-bold text-slate-800 text-xs sm:text-sm flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-indigo-500 flex-shrink-0"></span>
+                                [리딩튜터 주니어 1] 구문 분석 및 직독직해 완성
+                            </h5>
+                            <span class="self-start sm:self-auto px-2 py-0.5 text-[10px] sm:text-xs font-semibold bg-orange-100 text-orange-800 rounded-lg">Steady Progress</span>
+                        </div>
+                        
+                        <div class="bg-slate-50 p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-slate-100 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-2.5">
+                            <div class="p-2.5 bg-white border border-slate-200 text-xs text-center rounded-xl flex flex-col justify-between h-auto min-h-[4.5rem] shadow-sm">
+                                <div class="font-bold text-slate-800 mb-1 leading-tight">S01.1<br><span class="text-[10px] font-medium">하와이안 피자의 진실</span></div>
+                                <div class="text-[9px] sm:text-[10px] text-emerald-600 font-bold mt-auto"><i class="fa-solid fa-circle-check mr-0.5"></i>학습 완료</div>
+                            </div>
+                            <div class="p-2.5 bg-white border border-slate-200 text-xs text-center rounded-xl flex flex-col justify-between h-auto min-h-[4.5rem] shadow-sm">
+                                <div class="font-bold text-slate-800 mb-1 leading-tight">S01.2<br><span class="text-[10px] font-medium">영화 볼 때 팝콘을 안 먹었다고?</span></div>
+                                <div class="text-[9px] sm:text-[10px] text-emerald-600 font-bold mt-auto"><i class="fa-solid fa-circle-check mr-0.5"></i>학습 완료</div>
+                            </div>
+                            <a href="http://www.classcard.net/ParagraphShare/1783935/20052750/6984010/0" target="_blank" class="p-2.5 bg-white border border-slate-200 hover:border-indigo-500 hover:shadow-md transition-all text-xs text-center rounded-xl flex flex-col justify-between h-auto min-h-[4.5rem] shadow-sm">
+                                <div class="font-bold text-slate-800 mb-1 leading-tight">S01.3<br><span class="text-[10px] font-medium">바게트가 뭐길래!</span></div>
+                                <div class="text-[9px] sm:text-[10px] text-slate-400 font-medium mt-auto">구문 및 직독직해 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></div>
+                            </a>
+                            <a href="http://www.classcard.net/ParagraphShare/1783935/20052751/6984010/0" target="_blank" class="p-2.5 bg-white border border-slate-200 hover:border-indigo-500 hover:shadow-md transition-all text-xs text-center rounded-xl flex flex-col justify-between h-auto min-h-[4.5rem] shadow-sm">
+                                <div class="font-bold text-slate-800 mb-1 leading-tight">S01.4<br><span class="text-[10px] font-medium">비슷한 너희들~ 정체가 뭐니?</span></div>
+                                <div class="text-[9px] sm:text-[10px] text-slate-400 font-medium mt-auto">구문 및 직독직해 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></div>
+                            </a>
+                            <a href="http://www.classcard.net/ParagraphShare/1783935/20052752/6984010/0" target="_blank" class="p-2.5 bg-white border border-slate-200 hover:border-indigo-500 hover:shadow-md transition-all text-xs text-center rounded-xl flex flex-col justify-between h-auto min-h-[4.5rem] shadow-sm">
+                                <div class="font-bold text-slate-800 mb-1 leading-tight">S02.1<br><span class="text-[10px] font-medium">카우보이 장화가 왜 그곳에?</span></div>
+                                <div class="text-[9px] sm:text-[10px] text-slate-400 font-medium mt-auto">구문 및 직독직해 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></div>
+                            </a>
+                            <a href="http://www.classcard.net/ParagraphShare/1783935/20052753/6984010/0" target="_blank" class="p-2.5 bg-white border border-slate-200 hover:border-indigo-500 hover:shadow-md transition-all text-xs text-center rounded-xl flex flex-col justify-between h-auto min-h-[4.5rem] shadow-sm">
+                                <div class="font-bold text-slate-800 mb-1 leading-tight">S02.2<br><span class="text-[10px] font-medium">첫등교일이 기다려지는 이유</span></div>
+                                <div class="text-[9px] sm:text-[10px] text-slate-400 font-medium mt-auto">구문 및 직독직해 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></div>
+                            </a>
+                            <div class="p-2.5 bg-white border border-slate-200 text-xs text-center rounded-xl flex flex-col justify-between h-auto min-h-[4.5rem] shadow-sm">
+                                <div class="font-bold text-slate-800 mb-1 leading-tight">S02.3<br><span class="text-[10px] font-medium">귀엽기만 한 게 아니야</span></div>
+                                <div class="text-[9px] sm:text-[10px] text-emerald-600 font-bold mt-auto"><i class="fa-solid fa-circle-check mr-0.5"></i>학습 완료</div>
+                            </div>
+                            <div class="p-2.5 bg-white border border-slate-200 text-xs text-center rounded-xl flex flex-col justify-between h-auto min-h-[4.5rem] shadow-sm">
+                                <div class="font-bold text-slate-800 mb-1 leading-tight">S02.4<br><span class="text-[10px] font-medium">새해 첫날, 어떤 음식을 먹을까?</span></div>
+                                <div class="text-[9px] sm:text-[10px] text-emerald-600 font-bold mt-auto"><i class="fa-solid fa-circle-check mr-0.5"></i>학습 완료</div>
+                            </div>
+                            <a href="http://www.classcard.net/ParagraphShare/1783935/20052756/6984010/0" target="_blank" class="p-2.5 bg-white border border-slate-200 hover:border-indigo-500 hover:shadow-md transition-all text-xs text-center rounded-xl flex flex-col justify-between h-auto min-h-[4.5rem] shadow-sm">
+                                <div class="font-bold text-slate-800 mb-1 leading-tight">S03.1<br><span class="text-[10px] font-medium">발톱보다 빠른 손톱</span></div>
+                                <div class="text-[9px] sm:text-[10px] text-slate-400 font-medium mt-auto">구문 및 직독직해 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></div>
+                            </a>
+                            <a href="http://www.classcard.net/ParagraphShare/1783935/20052757/6984010/0" target="_blank" class="p-2.5 bg-white border border-slate-200 hover:border-indigo-500 hover:shadow-md transition-all text-xs text-center rounded-xl flex flex-col justify-between h-auto min-h-[4.5rem] shadow-sm">
+                                <div class="font-bold text-slate-800 mb-1 leading-tight">S03.2<br><span class="text-[10px] font-medium">취미로 건강해질 수 있다?</span></div>
+                                <div class="text-[9px] sm:text-[10px] text-slate-400 font-medium mt-auto">구문 및 직독직해 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></div>
+                            </a>
+                            <a href="http://www.classcard.net/ParagraphShare/1783935/20052758/6984010/0" target="_blank" class="p-2.5 bg-white border border-slate-200 hover:border-indigo-500 hover:shadow-md transition-all text-xs text-center rounded-xl flex flex-col justify-between h-auto min-h-[4.5rem] shadow-sm">
+                                <div class="font-bold text-slate-800 mb-1 leading-tight">S03.3<br><span class="text-[10px] font-medium">자, 귀를보여주세요!</span></div>
+                                <div class="text-[9px] sm:text-[10px] text-slate-400 font-medium mt-auto">구문 및 직독직해 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></div>
+                            </a>
+                            <a href="http://www.classcard.net/ParagraphShare/1783935/20052759/6984010/0" target="_blank" class="p-2.5 bg-white border border-slate-200 hover:border-indigo-500 hover:shadow-md transition-all text-xs text-center rounded-xl flex flex-col justify-between h-auto min-h-[4.5rem] shadow-sm">
+                                <div class="font-bold text-slate-800 mb-1 leading-tight">S03.4<br><span class="text-[10px] font-medium">컴퓨터에게 윙크를?</span></div>
+                                <div class="text-[9px] sm:text-[10px] text-slate-400 font-medium mt-auto">구문 및 직독직해 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></div>
+                            </a>
+                            <a href="http://www.classcard.net/ParagraphShare/1783935/20052760/6984010/0" target="_blank" class="p-2.5 bg-white border border-slate-200 hover:border-indigo-500 hover:shadow-md transition-all text-xs text-center rounded-xl flex flex-col justify-between h-auto min-h-[4.5rem] shadow-sm">
+                                <div class="font-bold text-slate-800 mb-1 leading-tight">S04.1<br><span class="text-[10px] font-medium">퐁당! 넣어보세요</span></div>
+                                <div class="text-[9px] sm:text-[10px] text-slate-400 font-medium mt-auto">구문 및 직독직해 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></div>
+                            </a>
+                            <div class="p-2.5 bg-white border border-slate-200 text-xs text-center rounded-xl flex flex-col justify-between h-auto min-h-[4.5rem] shadow-sm">
+                                <div class="font-bold text-slate-800 mb-1 leading-tight">S04.2<br><span class="text-[10px] font-medium">기쁜 마음으로 높이 높이!</span></div>
+                                <div class="text-[9px] sm:text-[10px] text-emerald-600 font-bold mt-auto"><i class="fa-solid fa-circle-check mr-0.5"></i>학습 완료</div>
+                            </div>
+                            <div class="p-2.5 bg-white border border-slate-200 text-xs text-center rounded-xl flex flex-col justify-between h-auto min-h-[4.5rem] shadow-sm">
+                                <div class="font-bold text-slate-800 mb-1 leading-tight">S04.3<br><span class="text-[10px] font-medium">아~ 향긋한 커피콩 볶는 냄새</span></div>
+                                <div class="text-[9px] sm:text-[10px] text-emerald-600 font-bold mt-auto"><i class="fa-solid fa-circle-check mr-0.5"></i>학습 완료</div>
+                            </div>
+                            <a href="http://www.classcard.net/ParagraphShare/1783935/20052763/6984010/0" target="_blank" class="p-2.5 bg-white border border-slate-200 hover:border-indigo-500 hover:shadow-md transition-all text-xs text-center rounded-xl flex flex-col justify-between h-auto min-h-[4.5rem] shadow-sm">
+                                <div class="font-bold text-slate-800 mb-1 leading-tight">S04.4<br><span class="text-[10px] font-medium">시저의 비밀 메시지</span></div>
+                                <div class="text-[9px] sm:text-[10px] text-slate-400 font-medium mt-auto">구문 및 직독직해 <i class="fa-solid fa-up-right-from-square ml-0.5"></i></div>
+                            </a>
+                            <div class="p-2.5 bg-amber-50 border border-amber-200 text-xs text-center rounded-xl flex flex-col justify-between h-auto min-h-[4.5rem] shadow-md ring-1 ring-amber-300">
+                                <div class="font-bold text-slate-800 mb-1 leading-tight">S05.1<br><span class="text-[10px] font-medium">올림픽에 이 종목이?!</span></div>
+                                <div class="text-[9px] sm:text-[10px] text-amber-600 font-bold mt-auto flex items-center justify-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>학습 진행 중</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="textbook-progress-section" class="bg-white rounded-3xl p-4 sm:p-5 shadow-sm border border-slate-100 scroll-mt-6">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-9 h-9 sm:w-10 sm:h-10 bg-sky-50 text-sky-600 rounded-xl flex items-center justify-center text-base shadow-inner flex-shrink-0">
+                        <i class="fa-solid fa-book"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900 text-sm sm:text-base">교과서 — 중1 동아(이병민, 본문)</h4>
+                        <p class="text-[10px] sm:text-xs text-slate-500 mt-0.5 leading-none">실시간 학습 진도율 분석 리포트</p>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 rounded-2xl p-3 sm:p-4 border border-slate-100">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                        <div class="flex items-baseline gap-2">
+                            <span class="bg-sky-100 text-sky-700 text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider font-mont self-center mr-1">PROGRESS RATIO</span>
+                            <span class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tighter leading-none">63%</span>
+                            <span class="text-xs font-bold text-slate-500 leading-none">(5 / 8 Units)</span>
+                        </div>
+                        <div class="inline-flex items-center gap-1.5 bg-amber-50 border border-amber-200 text-amber-600 text-[10px] sm:text-xs font-bold px-2.5 py-1 rounded-full self-start sm:self-auto shadow-sm">
+                            <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+                            Lesson 5 학습 중
+                        </div>
+                    </div>
+
+                    <div class="w-full bg-slate-200 rounded-full h-2 mb-4 overflow-hidden">
+                        <div class="bg-gradient-to-r from-sky-600 to-sky-400 h-full rounded-full transition-all duration-1000 ease-out" style="width: 62.5%"></div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <h5 class="text-[9px] sm:text-[10px] font-bold text-slate-500 flex items-center gap-1.5 uppercase font-mont tracking-wide mb-1.5">
+                            <i class="fa-solid fa-route text-sky-400"></i>
+                            Unit Progress Map <span class="font-sans text-slate-400 font-medium normal-case">(전체 8단원)</span>
+                        </h5>
+                        
+                        <div class="grid grid-cols-4 sm:grid-cols-8 gap-1.5 sm:gap-2">
+                            <div class="bg-sky-500 text-white font-bold text-[10px] sm:text-xs py-1 sm:py-1.5 rounded-lg text-center shadow-sm">Lesson 1</div>
+                            <div class="bg-sky-500 text-white font-bold text-[10px] sm:text-xs py-1 sm:py-1.5 rounded-lg text-center shadow-sm">Lesson 2</div>
+                            <div class="bg-sky-500 text-white font-bold text-[10px] sm:text-xs py-1 sm:py-1.5 rounded-lg text-center shadow-sm">Lesson 3</div>
+                            <div class="bg-sky-500 text-white font-bold text-[10px] sm:text-xs py-1 sm:py-1.5 rounded-lg text-center shadow-sm">Lesson 4</div>
+                            <div class="bg-amber-400 text-white font-bold text-[10px] sm:text-xs py-1 sm:py-1.5 rounded-lg text-center shadow-md transform scale-105 transition-transform ring-1 ring-amber-300">Lesson 5</div>
+                            <div class="bg-slate-200 text-slate-400 font-bold text-[10px] sm:text-xs py-1 sm:py-1.5 rounded-lg text-center">Lesson 6</div>
+                            <div class="bg-slate-200 text-slate-400 font-bold text-[10px] sm:text-xs py-1 sm:py-1.5 rounded-lg text-center">Lesson 7</div>
+                            <div class="bg-slate-200 text-slate-400 font-bold text-[10px] sm:text-xs py-1 sm:py-1.5 rounded-lg text-center">Lesson 8</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-3.5 pt-3.5 border-t border-slate-100 flex items-start gap-2.5 text-[11px] sm:text-xs text-slate-500 leading-relaxed px-1">
+                    <i class="fa-solid fa-circle-info text-sky-400 mt-0.5 text-[10px]"></i>
+                    <p>중1 동아(이병민, 본문) 문장 단위의 직독직해를 넘어, 글의 전체적인 흐름(내용 일치/불일치, 글의 순서, 지칭 추론)을 파악할 수 있도록 지도중입니다.</p>
+                </div>
+            </div>
+
+            <div id="grammar-progress-section" class="bg-white rounded-3xl p-4 sm:p-5 shadow-sm border border-slate-100 scroll-mt-6">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-9 h-9 sm:w-10 sm:h-10 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center text-base shadow-inner flex-shrink-0">
+                        <i class="fa-solid fa-bars-progress"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900 text-sm sm:text-base">문법 — Grammar Inside Level 1</h4>
+                        <p class="text-[10px] sm:text-xs text-slate-500 mt-0.5 leading-none">실시간 학습 진도율 분석 리포트</p>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 rounded-2xl p-3 sm:p-4 border border-slate-100">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                        <div class="flex items-baseline gap-2">
+                            <span class="bg-purple-100 text-purple-700 text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider font-mont self-center mr-1">PROGRESS RATIO</span>
+                            <span class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tighter leading-none">58%</span>
+                            <span class="text-xs font-bold text-slate-500 leading-none">(7 / 12 Chapters)</span>
+                        </div>
+                        <div class="inline-flex items-center gap-1.5 bg-amber-50 border border-amber-200 text-amber-600 text-[10px] sm:text-xs font-bold px-2.5 py-1 rounded-full self-start sm:self-auto shadow-sm">
+                            <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+                            Chapter 07 학습 중
+                        </div>
+                    </div>
+
+                    <div class="w-full bg-slate-200 rounded-full h-2 mb-4 overflow-hidden">
+                        <div class="bg-gradient-to-r from-purple-600 to-purple-400 h-full rounded-full transition-all duration-1000 ease-out" style="width: 58.3%"></div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <h5 class="text-[9px] sm:text-[10px] font-bold text-slate-500 flex items-center gap-1.5 uppercase font-mont tracking-wide mb-1.5">
+                            <i class="fa-solid fa-route text-purple-400"></i>
+                            Chapter Progress Map <span class="font-sans text-slate-400 font-medium normal-case">(전체 12챕터)</span>
+                        </h5>
+                        
+                        <div class="grid grid-cols-4 sm:grid-cols-12 gap-1.5 sm:gap-2">
+                            <div class="bg-purple-500 text-white font-bold text-[10px] sm:text-xs py-1 sm:py-1.5 rounded-lg text-center shadow-sm">CH 1</div>
+                            <div class="bg-purple-500 text-white font-bold text-[10px] sm:text-xs py-1 sm:py-1.5 rounded-lg text-center shadow-sm">CH 2</div>
+                            <div class="bg-purple-500 text-white font-bold text-[10px] sm:text-xs py-1 sm:py-1.5 rounded-lg text-center shadow-sm">CH 3</div>
+                            <div class="bg-purple-500 text-white font-bold text-[10px] sm:text-xs py-1 sm:py-1.5 rounded-lg text-center shadow-sm">CH 4</div>
+                            <div class="bg-purple-500 text-white font-bold text-[10px] sm:text-xs py-1 sm:py-1.5 rounded-lg text-center shadow-sm">CH 5</div>
+                            <div class="bg-purple-500 text-white font-bold text-[10px] sm:text-xs py-1 sm:py-1.5 rounded-lg text-center shadow-sm">CH 6</div>
+                            <div class="bg-amber-400 text-white font-bold text-[10px] sm:text-xs py-1 sm:py-1.5 rounded-lg text-center shadow-md transform scale-105 transition-transform ring-1 ring-amber-300">CH 7</div>
+                            <div class="bg-slate-200 text-slate-400 font-bold text-[10px] sm:text-xs py-1 sm:py-1.5 rounded-lg text-center">CH 8</div>
+                            <div class="bg-slate-200 text-slate-400 font-bold text-[10px] sm:text-xs py-1 sm:py-1.5 rounded-lg text-center">CH 9</div>
+                            <div class="bg-slate-200 text-slate-400 font-bold text-[10px] sm:text-xs py-1 sm:py-1.5 rounded-lg text-center">CH 10</div>
+                            <div class="bg-slate-200 text-slate-400 font-bold text-[10px] sm:text-xs py-1 sm:py-1.5 rounded-lg text-center">CH 11</div>
+                            <div class="bg-slate-200 text-slate-400 font-bold text-[10px] sm:text-xs py-1 sm:py-1.5 rounded-lg text-center">CH 12</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-3.5 pt-3.5 border-t border-slate-100 flex items-start gap-2.5 text-[11px] sm:text-xs text-slate-500 leading-relaxed px-1">
+                    <i class="fa-solid fa-circle-info text-purple-400 mt-0.5 text-[10px]"></i>
+                    <p>Grammar Inside Level 1은 중학교 서술형 내신 평가와 밀접한 고난도 개념들을 입체적으로 수록하고 있습니다. 단순한 기계식 암기가 아닌 오답 패턴을 정교하게 피드백하여 개념을 문제풀이에 완전히 적용하도록 정밀 지도 중입니다.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                <div id="grammar-section" class="bg-white rounded-3xl p-5 sm:p-6 border border-slate-100 shadow-sm scroll-mt-6 flex flex-col justify-between space-y-4">
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center text-lg shadow-inner">
+                                <i class="fa-solid fa-brain"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm sm:text-base">문법 — Classcard 문법훈련</h4>
+                                <p class="text-[10px] sm:text-xs text-slate-400">정밀 문법 훈련 실적부</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            영작을 통해 내면화된 어순 감각을 실전 내신 유형에 대응하도록 문제화하는 훈련 코스입니다. 개념 확인부터 서술형 문제까지 조윤아 학생이 이수한 오답 정밀 트랙 분석 결과입니다.
+                        </p>
+                    </div>
+                    <a href="https://www.classcard.net/ShareGClass/346731270" target="_blank" class="w-full bg-slate-50 hover:bg-purple-50 border border-slate-200 hover:border-purple-300 text-slate-700 hover:text-purple-800 text-xs font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-all">
+                        <span>문법 훈련 실적부 분석 결과</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                </div>
+
+                <div id="vocab-section" class="bg-white rounded-3xl p-5 sm:p-6 border border-slate-100 shadow-sm scroll-mt-6 flex flex-col justify-between space-y-4">
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center text-lg shadow-inner">
+                                <i class="fa-solid fa-spell-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm sm:text-base">어휘 — The King's Vocabulary</h4>
+                                <p class="text-[10px] sm:text-xs text-slate-400">주관식 어휘 성취도 보고서</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            정기 어휘 평가는 단순 객관식 테스트가 아닌, 의미를 정확히 아는 <strong class="text-slate-900 font-semibold">정밀 주관식 쓰기 시험</strong>으로 진행됩니다. 잊기 쉬운 단어 주기들을 누적 추적하여 관리하고 있습니다.
+                        </p>
+                    </div>
+                    <a href="https://www.classcard.net/ShareReport/346521926984010" target="_blank" class="w-full bg-slate-50 hover:bg-emerald-50 border border-slate-200 hover:border-emerald-300 text-slate-700 hover:text-emerald-800 text-xs font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-all">
+                        <span>어휘 테스트 보고서 열람</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+
+        <div id="content-math" class="tab-content space-y-6 sm:space-y-8 hidden">
+            <div class="bg-white rounded-3xl p-5 sm:p-8 shadow-sm border border-slate-100 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-16 h-16 sm:w-24 sm:h-24 bg-blue-50 rounded-bl-full flex items-center justify-center pl-4 pb-4 sm:pl-6 sm:pb-6">
+                    <i class="fa-solid fa-square-root-variable text-blue-500 text-lg sm:text-2xl"></i>
+                </div>
+                <div class="max-w-2xl space-y-4 sm:space-y-5 pr-8">
+                    <h3 class="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2">
+                        <span class="inline-block w-2 sm:w-2.5 h-5 sm:h-6 bg-blue-500 rounded-full"></span>
+                        수학 주요 학습 요약
+                    </h3>
+                    
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                            <div class="mt-0.5 bg-blue-100 text-blue-500 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 text-[9px]"><i class="fa-solid fa-check"></i></div>
+                            <div><strong class="text-slate-800">[중등 1학년 과정]</strong> 중등 1학년 1학기 - Ⅲ단원 문자와 식 단원 학습 진행 중</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bg-white p-5 sm:p-6 rounded-3xl shadow-sm border border-slate-100 space-y-4 sm:space-y-6">
+                <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                    <i class="fa-solid fa-layer-group text-blue-500"></i>
+                    수학 교과서 및 고효율 보충 시스템
+                </h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-slate-50 p-4 sm:p-5 rounded-2xl border border-slate-100 space-y-1.5 sm:space-y-2">
+                        <div class="w-17 h-8 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center text-xs sm:text-sm font-bold">개념/연산 학습</div>
+                        <h5 class="font-bold text-slate-800 text-xs sm:text-sm">수력 충전</h5>
+                        <p class="text-slate-500 text-xs leading-relaxed">핵심 원리를 명확히 인지하고, 체계적인 반복 훈련으로 연산 과정을 자동화합니다. 이를 통해 문제 풀이 시 학생의 인지 부하를 줄이고 계산의 정확성과 속도를 극대화하여, 수학적 기초 체력을 견고히 다지는 고효율 기본기 강화 과정입니다.</p>
+                    </div>
+                    <div class="bg-slate-50 p-4 sm:p-5 rounded-2xl border border-slate-100 space-y-1.5 sm:space-y-2">
+                        <div class="w-17 h-8 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs sm:text-sm font-bold">주교재 학습</div>
+                        <h5 class="font-bold text-slate-800 text-xs sm:text-sm">개념 플러스 유형</h5>
+                        <p class="text-slate-500 text-xs leading-relaxed">기본 개념 습득을 넘어, 이를 다양한 문제 상황에 적용하는 '지식의 전이'를 목표로 합니다. 기본 및 심화 발전 학습을 유기적으로 병행하여, 단순 이해를 넘어 고차원적인 수학적 응용력과 논리적 문제 해결 능력을 배양하는 핵심 단계입니다.</p>
+                    </div>
+                    <div class="bg-slate-50 p-4 sm:p-5 rounded-2xl border border-slate-100 space-y-1.5 sm:space-y-2">
+                        <div class="w-17 h-8 rounded-lg bg-amber-100 text-amber-600 flex items-center justify-center text-xs sm:text-sm font-bold">평가 시스템 / 오답 유형 학습</div>
+                        <h5 class="font-bold text-slate-800 text-xs sm:text-sm">단원평가 / 오답 맞춤형 학습</h5>
+                        <p class="text-slate-500 text-xs leading-relaxed">정기적인 단원평가를 실시하여 학생의 학업 성취도를 점검하고 취약한 개념 파악합니다. 이를 바탕으로 단순한 오답 확인을 넘어, 틀린 문항을 집중적으로 해결하는 오답 클리닉을 진행하여 학습 결손을 꼼꼼하게 메우고 완전 학습(Mastery Learning)을 돕는 실질적인 피드백 과정입니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2 px-1">
+                    <i class="fa-solid fa-square-poll-vertical text-amber-500"></i>
+                    단원별 세부 진도 &amp; 평가서 분석
+                </h4>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-white p-4 sm:p-5 rounded-3xl border border-slate-100 flex flex-col justify-between gap-4 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="space-y-2.5 sm:space-y-3">
+                            <div class="flex justify-between items-center">
+                                <span class="text-[10px] font-bold text-slate-400 font-mont">중등 1학년 1학기 - Ⅳ단원</span>
+                                <span class="px-2.5 py-0.5 text-[10px] sm:text-xs font-bold bg-emerald-100 text-emerald-800 rounded-full">학습 완료</span>
+                            </div>
+                            <h5 class="font-bold text-slate-800 text-sm sm:text-base">그래프와 비례 (좌표평면과 그래프)</h5>
+                            <p class="text-xs text-slate-500 leading-relaxed">순서쌍을 좌표평면 위에 나타내고, 정비례와 반비례 관계를 식과 그래프로 표현할 수 있다.</p>
+                        </div>
+                        <a href="https://thekingsedu.github.io/Monthly-Report/2026.06/Math_Data/조윤아_중1-1_(Ⅳ-1. 좌표평면과 그래프).html" target="_blank" class="py-2.5 bg-slate-50 hover:bg-slate-100 border border-slate-200 hover:border-kings-gold text-slate-700 text-xs font-bold text-center rounded-xl flex items-center justify-center gap-2 transition-colors">
+                            <i class="fa-solid fa-chart-line text-blue-500 text-sm"></i>
+                            <span>단원평가 분석 보고서 조회 <i class="fa-solid fa-arrow-right text-[10px] ml-1"></i></span>
+                        </a>
+                    </div>
+
+                    <div class="bg-white p-4 sm:p-5 rounded-3xl border border-slate-100 flex flex-col justify-between gap-4 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="space-y-2.5 sm:space-y-3">
+                            <div class="flex justify-between items-center">
+                                <span class="text-[10px] font-bold text-slate-400 font-mont">중등 1학년 1학기 - Ⅳ단원</span>
+                                <span class="px-2.5 py-0.5 text-[10px] sm:text-xs font-bold bg-emerald-100 text-emerald-800 rounded-full">학습 완료</span>
+                            </div>
+                            <h5 class="font-bold text-slate-800 text-sm sm:text-base">그래프와 비례 (정비례와 반비례)</h5>
+                            <p class="text-xs text-slate-500 leading-relaxed">순서쌍을 좌표평면 위에 나타내고, 정비례와 반비례 관계를 식과 그래프로 표현할 수 있다.</p>
+                        </div>
+                        <a href="https://thekingsedu.github.io/Monthly-Report/2026.06/Math_Data/조윤아_중1-1_(Ⅳ-2. 정비례와 반비례).html" target="_blank" class="py-2.5 bg-slate-50 hover:bg-slate-100 border border-slate-200 hover:border-kings-gold text-slate-700 text-xs font-bold text-center rounded-xl flex items-center justify-center gap-2 transition-colors">
+                            <i class="fa-solid fa-chart-line text-blue-500 text-sm"></i>
+                            <span>단원평가 분석 보고서 조회 <i class="fa-solid fa-arrow-right text-[10px] ml-1"></i></span>
+                        </a>
+                    </div>
+
+                    <div class="bg-white p-4 sm:p-5 rounded-3xl border border-slate-100 flex flex-col justify-between gap-4 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="space-y-2.5 sm:space-y-3">
+                            <div class="flex justify-between items-center">
+                                <span class="text-[10px] font-bold text-slate-400 font-mont">중등 1학년 2학기 - Ⅷ단원</span>
+                                <span class="px-2.5 py-0.5 text-[10px] sm:text-xs font-bold bg-emerald-100 text-emerald-800 rounded-full">학습 완료</span>
+                            </div>
+                            <h5 class="font-bold text-slate-800 text-sm sm:text-base">자료의 정리와 해석</h5>
+                            <p class="text-xs text-slate-500 leading-relaxed">도수분포표, 히스토그램, 도수분포다각형을 작성하고 이를 통해 자료의 분포 상태를 해석할 수 있다.</p>
+                        </div>
+                        <a href="https://thekingsedu.github.io/Monthly-Report/2026.06/Math_Data/조윤아_중1-2_(Ⅷ. 자료의 정리와 해석).html" target="_blank" class="py-2.5 bg-slate-50 hover:bg-slate-100 border border-slate-200 hover:border-kings-gold text-slate-700 text-xs font-bold text-center rounded-xl flex items-center justify-center gap-2 transition-colors">
+                            <i class="fa-solid fa-chart-line text-blue-500 text-sm"></i>
+                            <span>단원평가 분석 보고서 조회 <i class="fa-solid fa-arrow-right text-[10px] ml-1"></i></span>
+                        </a>
+                    </div>
+
+                    <div class="bg-white p-4 sm:p-5 rounded-3xl border border-slate-100 flex flex-col justify-between gap-4 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="space-y-2.5 sm:space-y-3">
+                            <div class="flex justify-between items-center">
+                                <span class="text-[10px] font-bold text-slate-400 font-mont">중등 1학년 1학기 - Ⅲ단원</span>
+                                <span class="px-2.5 py-0.5 text-[10px] sm:text-xs font-bold bg-blue-100 text-blue-800 rounded-full">학습 진행 중</span>
+                            </div>
+                            <h5 class="font-bold text-slate-800 text-sm sm:text-base">문자와 식</h5>
+                            <p class="text-xs text-slate-500 leading-relaxed">문자를 사용하여 식을 세우고, 일차방정식을 풀어 다양한 실생활 문제에 활용할 수 있다.</p>
+                        </div>
+                        <div class="py-2.5 bg-blue-50 border border-blue-200 text-blue-800 text-xs font-bold text-center rounded-xl flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-hourglass-half"></i>
+                            <span>교과 학습 진행 중</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-kings-navy text-white/50 py-10 px-4 border-t border-white/10 mt-12 text-center text-xs">
+        <div class="max-w-5xl mx-auto space-y-4">
+            <div class="flex items-center justify-center gap-3 text-white">
+                <i class="fa-solid fa-crown text-amber-400 text-base sm:text-lg"></i>
+                <span class="font-mont font-semibold tracking-wider text-[11px] sm:text-xs">THE KINGS PREMIUM PORTFOLIO SYSTEM</span>
+            </div>
+            <p class="text-[10px] sm:text-[11px]">© 2026 더킹스학원 (The Kings Edu.). All Rights Reserved.</p>
+            <p class="max-w-md mx-auto text-[10px] text-slate-500 leading-normal">
+                본 월간 분석 보고서는 학생의 사생활 보호 및 성과 추적 목적의 보안 문서입니다. 무단 배포 및 도용을 엄격히 규제합니다.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function switchTab(tabName) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.add('hidden'));
+
+            document.getElementById('content-' + tabName).classList.remove('hidden');
+
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(btn => {
+                btn.className = "tab-button flex-1 py-2.5 sm:py-3 px-2 sm:px-4 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-1.5 transition-all duration-300 text-slate-500 hover:bg-slate-50";
+            });
+
+            const activeBtn = document.getElementById('tab-' + tabName);
+            if (activeBtn) {
+                activeBtn.className = "tab-button flex-1 py-2.5 sm:py-3 px-2 sm:px-4 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-1.5 transition-all duration-300 bg-kings-navy text-white shadow-md";
+            }
+        }
+
+        function downloadHTML() {
+            const element = document.createElement("a");
+            const file = new Blob([document.documentElement.outerHTML], {type: 'text/html'});
+            element.href = URL.createObjectURL(file);
+            element.download = "thekings364.html";
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+        }
+    </script>
+
+</body></html>
